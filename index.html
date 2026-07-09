@@ -3,66 +3,25 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>КТ · Математиканы оқыту әдістемесі</title>
+  <title>Астамбаева Ж.Қ. — Математиканы оқыту әдістемесі</title>
   <style>
-    :root { --bg:#f7f4ef; --card:#fff; --text:#1f2933; --muted:#6b7280; --accent:#b45309; --accent-soft:#fff3dc; --border:#ead7bd; --green:#15803d; --green-bg:#eaf8ef; --red:#c2410c; --red-bg:#fff1ed; --shadow:0 8px 18px rgba(120,83,30,.09); }
-    * { box-sizing:border-box; }
-    body { margin:0; font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; background:linear-gradient(135deg,#fff8ed 0%,#f4efe8 100%); color:var(--text); }
-    .wrap { max-width:1120px; margin:0 auto; padding:14px 10px 50px; }
-    .hero { background:var(--card); border:1px solid var(--border); border-radius:20px; padding:16px 14px; box-shadow:var(--shadow); margin-bottom:12px; }
-    .book-badge { display:inline-block; background:var(--accent-soft); color:var(--accent); font-weight:800; border-radius:999px; padding:6px 10px; margin-bottom:9px; font-size:13px; }
-    .hero h1 { margin:0 0 8px; font-size:23px; line-height:1.2; }
-    .hero p { margin:0; color:var(--muted); font-size:14px; line-height:1.5; }
-    .info-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:8px; margin:10px 0 12px; }
-    .info-card { background:var(--card); border:1px solid var(--border); border-radius:14px; padding:10px 11px; box-shadow:var(--shadow); min-height:66px; }
-    .info-card b { display:block; font-size:15px; color:var(--accent); margin-bottom:2px; }
-    .info-card span { color:var(--muted); font-size:12.5px; line-height:1.35; }
-    .sections { display:grid; grid-template-columns:repeat(3,1fr); gap:9px; margin-top:10px; }
-    .section-card { background:var(--card); border:1px solid var(--border); border-radius:15px; padding:10px; box-shadow:var(--shadow); cursor:pointer; transition:transform .14s ease,border-color .14s ease; min-height:116px; }
-    .section-card:hover { transform:translateY(-2px); border-color:var(--accent); }
-    .section-top { display:flex; align-items:center; gap:8px; margin-bottom:7px; }
-    .num { flex:0 0 auto; display:inline-flex; align-items:center; justify-content:center; width:26px; height:26px; border-radius:50%; background:var(--accent-soft); color:var(--accent); font-weight:800; font-size:13px; }
-    .count { margin-left:auto; color:var(--accent); background:#fff7eb; border:1px solid var(--border); border-radius:999px; padding:3px 7px; font-size:11.5px; font-weight:750; }
-    .section-card h3 { margin:0 0 6px; font-size:14.5px; line-height:1.28; }
-    .section-card p { margin:0; color:var(--muted); font-size:12.5px; line-height:1.35; }
-    .test-page { display:none; }
-    .topbar { display:flex; align-items:center; gap:8px; margin-bottom:10px; }
-    .back-btn,.result-btn { border:none; border-radius:13px; padding:10px 14px; font-weight:750; cursor:pointer; font-size:14px; }
-    .back-btn { background:#fff; color:var(--text); border:1px solid var(--border); }
-    .result-btn { background:var(--accent); color:#fff; width:100%; margin-top:14px; }
-    .test-title { background:var(--card); border:1px solid var(--border); border-radius:17px; padding:14px; box-shadow:var(--shadow); margin-bottom:11px; }
-    .test-title h2 { margin:0 0 6px; font-size:20px; line-height:1.25; }
-    .test-title p { margin:0; color:var(--muted); line-height:1.45; font-size:14px; }
-    .question { background:var(--card); border:1px solid var(--border); border-radius:17px; padding:13px; box-shadow:var(--shadow); margin-bottom:11px; }
-    .q-head { display:flex; gap:9px; align-items:flex-start; margin-bottom:9px; }
-    .q-number { min-width:28px; height:28px; border-radius:50%; background:var(--accent-soft); color:var(--accent); display:inline-flex; align-items:center; justify-content:center; font-weight:800; font-size:13px; }
-    .q-text { font-weight:750; line-height:1.42; padding-top:3px; font-size:14.5px; }
-    .q-type { display:inline-block; margin:0 0 9px 37px; color:var(--muted); font-size:12px; background:#fff7eb; padding:4px 8px; border-radius:999px; }
-    .options { display:grid; gap:7px; }
-    .option { display:flex; gap:9px; align-items:flex-start; border:1px solid var(--border); border-radius:13px; padding:9px; cursor:pointer; line-height:1.35; background:#fff; font-size:14px; }
-    .option input { margin-top:3px; transform:scale(1.05); }
-    .option.correct { background:var(--green-bg); border-color:var(--green); }
-    .option.wrong { background:var(--red-bg); border-color:var(--red); }
-    .explanation { display:none; margin-top:10px; padding:10px; border-radius:13px; background:#faf7f2; border:1px solid #eee0cf; color:#333; line-height:1.45; font-size:13.5px; }
-    .score-box { display:none; background:#fff; border:1px solid var(--border); border-radius:17px; padding:14px; box-shadow:var(--shadow); margin:14px 0; }
-    .score-box h3 { margin:0 0 5px; color:var(--accent); font-size:20px; }
-    .score-box p { margin:0; color:var(--muted); line-height:1.45; }
-    @media (max-width:900px) { .sections{grid-template-columns:repeat(2,1fr)} }
-    @media (max-width:640px) { .hero h1{font-size:20px} .info-grid,.sections{grid-template-columns:1fr} .wrap{padding:12px 9px 44px} .section-card{min-height:auto} }
-  </style>
+    :root{--bg:#f8f4ee;--card:#fff;--text:#1f2933;--muted:#6b7280;--accent:#b45309;--accent-soft:#fff3dc;--border:#ead7bd;--green:#15803d;--green-bg:#eaf8ef;--red:#c2410c;--red-bg:#fff1ed;--shadow:0 7px 16px rgba(120,83,30,.09)}
+    *{box-sizing:border-box} body{margin:0;font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:linear-gradient(135deg,#fff8ed 0%,#f4efe8 100%);color:var(--text)}
+    .wrap{max-width:1120px;margin:0 auto;padding:14px 10px 56px}.hero{background:var(--card);border:1px solid var(--border);border-radius:18px;padding:15px 14px;box-shadow:var(--shadow);margin-bottom:10px}.book-badge{display:inline-block;background:var(--accent-soft);color:var(--accent);font-weight:800;border-radius:999px;padding:5px 10px;margin-bottom:7px;font-size:13px}.hero h1{margin:0 0 7px;font-size:22px;line-height:1.2}.hero p{margin:0;color:var(--muted);font-size:14px;line-height:1.45}.info-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:10px 0 12px}.info-card{background:var(--card);border:1px solid var(--border);border-radius:13px;padding:9px 10px;box-shadow:var(--shadow)}.info-card b{display:block;font-size:15px;color:var(--accent);margin-bottom:2px}.info-card span{color:var(--muted);font-size:12.5px;line-height:1.32}.sections{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:10px}.section-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:9px;box-shadow:var(--shadow);cursor:pointer;transition:transform .15s ease,border-color .15s ease}.section-card:hover{transform:translateY(-1px);border-color:var(--accent)}.section-top{display:flex;align-items:center;gap:7px;margin-bottom:4px}.num{min-width:25px;height:25px;border-radius:50%;background:var(--accent-soft);color:var(--accent);font-weight:800;display:inline-flex;align-items:center;justify-content:center;font-size:12px}.section-card h3{margin:0 0 4px;font-size:13.5px;line-height:1.25}.section-card p{margin:0;color:var(--muted);font-size:12px;line-height:1.3}.test-page{display:none}.topbar{display:flex;align-items:center;gap:8px;margin-bottom:10px}.back-btn,.result-btn{border:none;border-radius:13px;padding:10px 13px;font-weight:750;cursor:pointer;font-size:14px}.back-btn{background:#fff;color:var(--text);border:1px solid var(--border)}.result-btn{background:var(--accent);color:#fff;width:100%;margin-top:12px}.test-title{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:13px;box-shadow:var(--shadow);margin-bottom:10px}.test-title h2{margin:0 0 6px;font-size:19px;line-height:1.25}.test-title p{margin:0;color:var(--muted);line-height:1.42;font-size:14px}.question{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:13px;box-shadow:var(--shadow);margin-bottom:10px}.q-head{display:flex;gap:9px;align-items:flex-start;margin-bottom:9px}.q-number{min-width:29px;height:29px;border-radius:50%;background:var(--accent-soft);color:var(--accent);display:inline-flex;align-items:center;justify-content:center;font-weight:800;font-size:13px}.q-text{font-weight:750;line-height:1.42;padding-top:3px}.q-type{display:inline-block;margin:0 0 10px 38px;color:var(--muted);font-size:12.5px;background:#fff7eb;padding:4px 8px;border-radius:999px}.options{display:grid;gap:8px}.option{display:flex;gap:9px;align-items:flex-start;border:1px solid var(--border);border-radius:13px;padding:9px 10px;cursor:pointer;line-height:1.37;background:#fff;font-size:14px}.option input{margin-top:3px;transform:scale(1.05)}.option.correct{background:var(--green-bg);border-color:var(--green)}.option.wrong{background:var(--red-bg);border-color:var(--red)}.explanation{display:none;margin-top:10px;padding:10px;border-radius:13px;background:#faf7f2;border:1px solid #eee0cf;color:#333;line-height:1.45;font-size:13.5px}.score-box{display:none;background:#fff;border:1px solid var(--border);border-radius:16px;padding:14px;box-shadow:var(--shadow);margin:12px 0}.score-box h3{margin:0 0 5px;color:var(--accent);font-size:20px}.score-box p{margin:0;color:var(--muted);line-height:1.4}@media(max-width:900px){.sections{grid-template-columns:repeat(2,1fr)}}@media(max-width:640px){.hero h1{font-size:21px}.info-grid,.sections{grid-template-columns:1fr}.wrap{padding:12px 9px 46px}.section-card{padding:8px}.section-card h3{font-size:13.2px}}
+</style>
 </head>
 <body>
   <div class="wrap">
     <div id="homePage">
       <section class="hero">
-        <div class="book-badge">КТ · 3-кітап · Ж.Қ. Астамбаева</div>
+        <div class="book-badge">Ж.Қ. Астамбаева · КТА дайындық</div>
         <h1>Математиканы оқыту әдістемесі</h1>
-        <p>Сайт кітап бөлімдері мен КТ тақырыптарына сәйкестендіріліп қайта жасалды. Әр бөлімде тақырыпқа сай кеңейтілген сұрақтар, бір құрылымдағы жауап нұсқалары және тексерістен кейін түсіндірме беріледі.</p>
+        <p>Бұл бөлімде бастауыш математика әдістемесінің пәні, мазмұны, оқыту принциптері, сабақ ұйымдастыру, ұғым қалыптастыру, есеп шығару, бағалау және оқу құралдарын қолдану мәселелері қарастырылады.</p>
       </section>
       <div class="info-grid">
         <div class="info-card"><b>Қазақша</b><span>сұрақтар мен түсіндірмелер толық қазақ тілінде</span></div>
-        <div class="info-card"><b>1 / 2–3</b><span>single — 1 дұрыс, multi — 2–3 дұрыс жауап</span></div>
-        <div class="info-card"><b>80 сұрақ</b><span>әр бөлімде 10 сұрақ, жауаптар бір тақырыпта</span></div>
+        <div class="info-card"><b>80 сұрақ</b><span>КТА тақырыптарына сәйкес тақырыптық тест</span></div>
+        <div class="info-card"><b>Нұсқалар</b><span>жауаптар бір тақырып, бір формат және бір стиль бойынша берілді</span></div>
       </div>
       <div class="sections" id="sectionsList"></div>
     </div>
@@ -74,1625 +33,1385 @@
       <div class="score-box" id="scoreBox"><h3 id="scoreText"></h3><p id="scoreComment"></p></div>
     </div>
   </div>
-<script>
-const sections = [
-  {
-    "title": "Математиканы оқыту әдістемесінің пәні мен міндеттері",
-    "desc": "Әдістеменің пәні, мақсаты, оқыту мазмұны, білімділік, дамытушылық және тәрбиелік міндеттер.",
-    "questions": [
+  <script>
+    const sections = [
       {
-        "type": "single",
-        "level": "B",
-        "text": "Математиканы оқыту әдістемесінің пәнін нақты сипаттайтын жауапты таңдаңыз.",
-        "options": [
-          "математиканы оқыту мақсаты, мазмұны, әдістері, құралдары мен нәтижесінің байланысын зерттеу",
-          "математикалық терминдердің тарихи қалыптасу кезеңдерін ғана сипаттау",
-          "оқушының сыныптан тыс қоғамдық белсенділігін ғана бақылау",
-          "мектептің әкімшілік құжаттарын толтыру тәртібін ғана белгілеу",
-          "оқу кабинеттерінің материалдық жабдықталуын ғана тексеру"
-        ],
-        "correct": [
-          0
-        ],
-        "explanation": "Әдістеме математиканы оқыту жүйесін тұтас қарастырады: мақсат, мазмұн, әдіс, құрал, форма және нәтиже арасындағы байланыс зерттеледі."
+            "title": "Математиканы оқыту әдістемесінің пәні мен міндеттері",
+            "desc": "Пәні, мақсаты, міндеттері және бастауыш математика курсының әдістемелік негіздері.",
+            "questions": [
+                  {
+                        "type": "single",
+                        "text": "Математиканы оқыту әдістемесінің пәнін нақты сипаттайтын жауапты таңдаңыз.",
+                        "options": [
+                              "Математиканы оқыту мақсаты, мазмұны, әдістері, құралдары және нәтижелері арасындағы байланыстар",
+                              "Математикалық білім тарихы, теориялық мектептер және ғылыми бағыттар арасындағы байланыстар",
+                              "Оқу кабинеті жабдықтары, материалдық қорлар және мектеп мүлкі арасындағы байланыстар",
+                              "Педагог кадрлар құрамы, еңбек жүктемесі және тарификация арасындағы байланыстар",
+                              "Сынып жетекшілігі, тәрбие жоспары және мектеп іс-шаралары арасындағы байланыстар"
+                        ],
+                        "correct": [
+                              0
+                        ],
+                        "explanation": "Әдістеменің пәні оқыту жүйесіндегі мақсат, мазмұн, әдіс, құрал, форма және нәтиженің өзара байланысын зерттейді."
+                  },
+                  {
+                        "type": "single",
+                        "text": "Математиканы оқытудың білімділік міндеті қай жауапта дәл берілген?",
+                        "options": [
+                              "Бағдарламаға сәйкес математикалық білім, білік және дағдыларды жүйелі меңгерту",
+                              "Оқу әрекетіне сәйкес танымдық қызығушылық пен ойлау белсенділігін дамыту",
+                              "Тәрбиелік мақсатқа сәйкес ұқыптылық пен жауапкершілік қасиеттерін қалыптастыру",
+                              "Практикалық жағдайға сәйкес математикалық білімді өмірде қолдануға үйрету",
+                              "Коммуникативтік ортаға сәйкес математикалық тілде пікір айтуға дағдыландыру"
+                        ],
+                        "correct": [
+                              0
+                        ],
+                        "explanation": "Білімділік міндеттің негізгі мазмұны — оқушыға математикалық білім, білік және дағдыны меңгерту."
+                  },
+                  {
+                        "type": "single",
+                        "text": "Математиканы оқытудың дамытушылық міндетіне сәйкес жауапты таңдаңыз.",
+                        "options": [
+                              "Оқушының талдау, салыстыру, жалпылау және дәлелдеу әрекеттерін дамыту",
+                              "Оқушының есептеу, өлшеу, жазу және сызу дағдыларын қалыптастыру",
+                              "Оқушының ұқыптылық, дербестік, жауапкершілік және табандылық қасиеттерін тәрбиелеу",
+                              "Оқушының математикалық терминдерді, таңбаларды, ережелерді және алгоритмдерді меңгеруі",
+                              "Оқушының оқу материалын практикалық жағдайларда қолдану тәжірибесін кеңейту"
+                        ],
+                        "correct": [
+                              0
+                        ],
+                        "explanation": "Дамытушылық міндет ойлау амалдарын, танымдық белсенділікті және дәлелдеу мәдениетін дамытуға бағытталады."
+                  },
+                  {
+                        "type": "multi",
+                        "text": "Математиканы оқыту әдістемесінің негізгі міндеттерін таңдаңыз.",
+                        "options": [
+                              "Білімділік міндетті жүзеге асыру",
+                              "Дамытушылық міндетті жүзеге асыру",
+                              "Тәрбиелік міндетті жүзеге асыру",
+                              "Материалдық-техникалық қорды жоспарлау",
+                              "Кадрлық құрамды тарификациялау",
+                              "Мектеп ғимаратын пайдалану",
+                              "Құжат айналымын мұрағаттау",
+                              "Шаруашылық есепті ұйымдастыру"
+                        ],
+                        "correct": [
+                              0,
+                              1,
+                              2
+                        ],
+                        "explanation": "Негізгі әдістемелік міндеттер білімділік, дамытушылық және тәрбиелік бағыттармен байланысты."
+                  },
+                  {
+                        "type": "single",
+                        "text": "Бастауыш математика әдістемесінде «не үшін оқыту керек?» сұрағына сәйкес келетін компонентті таңдаңыз.",
+                        "options": [
+                              "Оқыту мақсаты",
+                              "Оқыту мазмұны",
+                              "Оқыту әдісі",
+                              "Оқыту құралы",
+                              "Оқыту нәтижесі"
+                        ],
+                        "correct": [
+                              0
+                        ],
+                        "explanation": "«Не үшін оқыту керек?» сұрағы оқытудың мақсатын анықтайды."
+                  },
+                  {
+                        "type": "single",
+                        "text": "Бастауыш математика әдістемесінде «нені оқыту керек?» сұрағына сәйкес келетін компонентті таңдаңыз.",
+                        "options": [
+                              "Оқыту мазмұны",
+                              "Оқыту мақсаты",
+                              "Оқыту формасы",
+                              "Оқыту құралы",
+                              "Оқыту нәтижесі"
+                        ],
+                        "correct": [
+                              0
+                        ],
+                        "explanation": "«Нені оқыту керек?» сұрағы оқу мазмұнына, яғни тақырыптар мен ұғымдар жүйесіне қатысты."
+                  },
+                  {
+                        "type": "single",
+                        "text": "Математиканы оқытудағы тәрбиелік міндеттің мазмұнын көрсететін жауапты таңдаңыз.",
+                        "options": [
+                              "Ұқыптылық, дәлдік, жауапкершілік және еңбек мәдениетін қалыптастыру",
+                              "Талдау, салыстыру, жалпылау және абстракциялау әрекеттерін дамыту",
+                              "Санау, есептеу, өлшеу және геометриялық салу дағдыларын меңгерту",
+                              "Термин, таңба, ереже және алгоритм жүйесін түсіндіру",
+                              "Білімді есеп, теңдеу, мәтінді тапсырма және өлшем арқылы қолдандыру"
+                        ],
+                        "correct": [
+                              0
+                        ],
+                        "explanation": "Тәрбиелік міндет математиканы оқыту арқылы тұлғалық сапаларды қалыптастырумен байланысты."
+                  },
+                  {
+                        "type": "multi",
+                        "text": "Математиканы оқыту әдістемесінің зерттейтін мәселелерін таңдаңыз.",
+                        "options": [
+                              "Оқыту мақсатын анықтау",
+                              "Оқыту мазмұнын іріктеу",
+                              "Оқыту әдістерін негіздеу",
+                              "Мектеп мүлкін бағалау",
+                              "Ғимарат жоспарын бекіту",
+                              "Қаржылық сметаны жасау",
+                              "Асхана мәзірін құрастыру",
+                              "Кадрлық демалысты бөлу"
+                        ],
+                        "correct": [
+                              0,
+                              1,
+                              2
+                        ],
+                        "explanation": "Әдістеме оқытудың мақсатын, мазмұнын, әдістерін және нәтижесін педагогикалық тұрғыдан қарастырады."
+                  },
+                  {
+                        "type": "single",
+                        "text": "Математика әдістемесі педагогикамен қандай байланыста қарастырылады?",
+                        "options": [
+                              "Оқыту заңдылықтарын, дидактикалық принциптерді және сабақ ұйымдастыруын қолдану арқылы",
+                              "Сандар теориясын, функциялар теориясын және алгебралық құрылымдарды дәлелдеу арқылы",
+                              "Психологиялық диагностика, темперамент типтері және мінез акцентуацияларын анықтау арқылы",
+                              "Экономикалық жоспарлау, қаржылық есеп және ресурстық басқаруды жүргізу арқылы",
+                              "Құқықтық норма, әкімшілік шешім және қызметтік құжаттарды рәсімдеу арқылы"
+                        ],
+                        "correct": [
+                              0
+                        ],
+                        "explanation": "Математика әдістемесі жалпы педагогика мен дидактика қағидаларына сүйенеді."
+                  },
+                  {
+                        "type": "single",
+                        "text": "Математика әдістемесі психологиямен қандай байланыста қарастырылады?",
+                        "options": [
+                              "Оқушының жас ерекшелігі, қабылдауы, ойлауы және есте сақтауы ескерілуі арқылы",
+                              "Оқу жоспары, пәндік бағдарлама, күнтізбелік мерзім және сағат саны белгіленуі арқылы",
+                              "Математикалық аксиома, теорема, формула және дәлелдеу жүйесі құрылуы арқылы",
+                              "Сынып бөлмесі, оқу тақтасы, көрнекілік және техникалық құрал таңдалуы арқылы",
+                              "Құжат нысаны, журнал жазбасы, бұйрық және есеп беру тәртібі орындалуы арқылы"
+                        ],
+                        "correct": [
+                              0
+                        ],
+                        "explanation": "Оқыту әдістемесі оқушының танымдық даму ерекшеліктеріне сүйенеді."
+                  }
+            ]
       },
       {
-        "type": "single",
-        "level": "A",
-        "text": "Математиканы оқытудың білімділік міндетіне сәйкес келетін тұжырымды көрсетіңіз.",
-        "options": [
-          "оқушыларға бағдарламаға сай математикалық білім, білік және дағдыны меңгерту",
-          "оқушылардың тәртіп ережесін сақтауын негізгі нәтиже ретінде бағалау",
-          "сынып жетекшісінің тәрбие жоспарын математикалық мазмұнмен алмастыру",
-          "оқушының спорттық дайындығын оқу жетістігімен теңестіру",
-          "мектептің ішкі құжат айналымын сабақ мақсаты ретінде алу"
-        ],
-        "correct": [
-          0
-        ],
-        "explanation": "Білімділік міндет математикалық білімді меңгертуге, есептеу, өлшеу, салыстыру, дәлелдеу сияқты білік пен дағдыны қалыптастыруға бағытталады."
+            "title": "Бастауыш математика курсының мазмұны",
+            "desc": "Натурал сандар, амалдар, шамалар, геометриялық материал және мәтінді есептер мазмұны.",
+            "questions": [
+                  {
+                        "type": "single",
+                        "text": "Бастауыш математика мазмұнының негізгі желісін таңдаңыз.",
+                        "options": [
+                              "Сан, амал, шама, геометриялық фигура және мәтінді есеп жүйесі",
+                              "Фонетика, морфология, синтаксис, орфография және пунктуация жүйесі",
+                              "Дереккөз, карта, хронология, тұлға және тарихи кезең жүйесі",
+                              "Жасуша, ұлпа, ағза, орта және экологиялық байланыс жүйесі",
+                              "Әуен, ырғақ, тембр, орындау және музыкалық жанр жүйесі"
+                        ],
+                        "correct": [
+                              0
+                        ],
+                        "explanation": "Бастауыш математика мазмұны сан, амал, шама, геометриялық материал және есептер арқылы құрылады."
+                  },
+                  {
+                        "type": "single",
+                        "text": "Натурал сандарды оқытудың бастапқы мазмұны қай жауапта дұрыс берілген?",
+                        "options": [
+                              "Санау, санның құрамы, сан қатары және разрядтық құрамы",
+                              "Өлшеу, масштаб, координата және векторлық шама",
+                              "Теңдеу, функция, график және айнымалы тәуелділік",
+                              "Бұрыш, шеңбер, көпжақ және кеңістік денелері",
+                              "Ықтималдық, статистика, жиілік және диаграмма"
+                        ],
+                        "correct": [
+                              0
+                        ],
+                        "explanation": "Натурал сан ұғымы санау, сан қатары, санның құрамы және разрядтық құрылым арқылы қалыптасады."
+                  },
+                  {
+                        "type": "single",
+                        "text": "Арифметикалық амалдарды оқытуда ең маңызды әдістемелік бағытты таңдаңыз.",
+                        "options": [
+                              "Амал мағынасын ашу, орындау тәсілін түсіндіру және қолдану жағдайын көрсету",
+                              "Фигура қасиетін анықтау, сызба салу және кеңістік қатынасты сипаттау",
+                              "Шаманы өлшеу, өлшем бірлігін таңдау және өлшеу нәтижесін жазу",
+                              "Мәтінді оқу, шартын талдау және сұраққа сәйкес шешім құру",
+                              "Деректі жинау, кестеге түсіру және диаграмма арқылы көрсету"
+                        ],
+                        "correct": [
+                              0
+                        ],
+                        "explanation": "Амалдарды оқытуда амалдың мәнін түсіндіру, алгоритмді меңгерту және есепте қолдану негізгі орын алады."
+                  },
+                  {
+                        "type": "multi",
+                        "text": "Бастауыш математика курсындағы шамаларға қатысты мазмұнды таңдаңыз.",
+                        "options": [
+                              "Ұзындықты өлшеу",
+                              "Массаны өлшеу",
+                              "Уақытты өлшеу",
+                              "Сөз құрамын талдау",
+                              "Сөйлем мүшесін анықтау",
+                              "Карта масштабын сипаттау",
+                              "Музыкалық ырғақты ажырату",
+                              "Тарихи датаны салыстыру"
+                        ],
+                        "correct": [
+                              0,
+                              1,
+                              2
+                        ],
+                        "explanation": "Шамалар мазмұны ұзындық, масса, уақыт, сыйымдылық, аудан сияқты өлшеу әрекеттерімен байланысты."
+                  },
+                  {
+                        "type": "single",
+                        "text": "Геометриялық материалды бастауышта оқытудың негізгі мақсатын таңдаңыз.",
+                        "options": [
+                              "Фигураларды тану, қасиеттерін байқау, сызу және кеңістік түсініктерін дамыту",
+                              "Сандарды санау, салыстыру, жазу және разрядтық құрамын анықтау",
+                              "Амалдарды орындау, өрнек мәнін табу және есептеу тәсілін қолдану",
+                              "Шамаларды өлшеу, бірліктерді түрлендіру және өлшеу нәтижесін жазу",
+                              "Мәтінді талдау, сұрақ құру, шешім жоспарын таңдау және жауап беру"
+                        ],
+                        "correct": [
+                              0
+                        ],
+                        "explanation": "Геометриялық материал фигуралар туралы түсінік, кеңістік бағдар және сызу әрекеттерін қалыптастырады."
+                  },
+                  {
+                        "type": "single",
+                        "text": "Мәтінді есептерді оқыту мазмұнына сәйкес жауапты таңдаңыз.",
+                        "options": [
+                              "Шартты талдау, математикалық қатынасты анықтау, шешу жолын құру және жауабын тексеру",
+                              "Сан қатарын құру, разрядты анықтау, санды салыстыру және сан құрамын айту",
+                              "Фигураны атау, қабырғасын өлшеу, бұрышын белгілеу және сызбасын салу",
+                              "Өлшем бірлігін таңдау, өлшеу құралын қолдану, нәтижені жазу және түрлендіру",
+                              "Есептеу тәсілін жаттықтыру, амал тәртібін сақтау, өрнек мәнін табу және жазу"
+                        ],
+                        "correct": [
+                              0
+                        ],
+                        "explanation": "Мәтінді есеп мазмұны шартты түсіну, байланыстарды анықтау және шешім құруды қамтиды."
+                  },
+                  {
+                        "type": "multi",
+                        "text": "Бастауыш математика мазмұнында сабақтастықты қамтамасыз ететін компоненттерді таңдаңыз.",
+                        "options": [
+                              "Ұғымдардың біртіндеп күрделенуі",
+                              "Дағдылардың кезеңмен қалыптасуы",
+                              "Тақырыптардың өзара байланысы",
+                              "Пәндердің кездейсоқ ауысуы",
+                              "Ережелердің бөлек берілуі",
+                              "Жаттығулардың ретсіз берілуі",
+                              "Терминдердің жүйесіз қолданылуы",
+                              "Тапсырмалардың байланыссыз таңдалуы"
+                        ],
+                        "correct": [
+                              0,
+                              1,
+                              2
+                        ],
+                        "explanation": "Сабақтастық ұғым, дағды және тақырыптардың жүйелі байланысы арқылы іске асады."
+                  },
+                  {
+                        "type": "single",
+                        "text": "Разрядтық құрамды меңгертуге сәйкес келетін тапсырма түрін таңдаңыз.",
+                        "options": [
+                              "Санды ондықтар мен бірліктерге жіктеу",
+                              "Кесіндінің ұзындығын сантиметрмен өлшеу",
+                              "Тік төртбұрыштың қабырғаларын атау",
+                              "Мәтінді есептің сұрағын белгілеу",
+                              "Уақытты сағат бойынша анықтау"
+                        ],
+                        "correct": [
+                              0
+                        ],
+                        "explanation": "Разрядтық құрам санды ондық, бірлік, жүздік сияқты разрядтарға жіктеу арқылы меңгеріледі."
+                  },
+                  {
+                        "type": "single",
+                        "text": "Амалдардың өзара байланысын оқытуға сәйкес келетін мазмұнды таңдаңыз.",
+                        "options": [
+                              "Қосу мен азайтудың, көбейту мен бөлудің кері амал ретінде байланысын түсіндіру",
+                              "Ұзындық пен массаның, уақыт пен сыйымдылықтың өлшем бірліктерін салыстыру",
+                              "Үшбұрыш пен төртбұрыштың, шеңбер мен дөңгелектің белгілерін ажырату",
+                              "Шарт пен сұрақтың, шешім мен жауаптың мәтінді есептегі орнын анықтау",
+                              "Сан мен цифрдың, разряд пен класс атауларының терминдік айырмасын көрсету"
+                        ],
+                        "correct": [
+                              0
+                        ],
+                        "explanation": "Амалдардың өзара байланысы кері амалдар арқылы түсіндіріледі."
+                  },
+                  {
+                        "type": "single",
+                        "text": "Математика мазмұнын іріктеуде жас ерекшелігін ескерудің мәнін таңдаңыз.",
+                        "options": [
+                              "Материалды оқушы қабылдауына сай нақтыдан абстрактіге қарай ұйымдастыру",
+                              "Материалды пән атауына сай бөлімдерге әкімшілік тәртіппен орналастыру",
+                              "Материалды мұғалім жүктемесіне сай сағат саны бойынша бөлу",
+                              "Материалды кабинет мүмкіндігіне сай құралдар тізімімен шектеу",
+                              "Материалды құжат нысанына сай есеп беру құрылымымен рәсімдеу"
+                        ],
+                        "correct": [
+                              0
+                        ],
+                        "explanation": "Бастауышта оқушының жас ерекшелігіне сай нақты әрекеттен абстрактілі ойлауға көшу маңызды."
+                  }
+            ]
       },
       {
-        "type": "single",
-        "level": "B",
-        "text": "Дамытушылық міндеттің мазмұнын дәл көрсететін жауапты таңдаңыз.",
-        "options": [
-          "оқушының логикалық ойлауын, талдау, салыстыру, жалпылау және дәлелдеу әрекетін дамыту",
-          "оқушыға дайын ережені түсіндірмей көшіртіп жаздыру",
-          "оқушы жауабын тек соңғы сандық нәтижесі бойынша қабылдау",
-          "тапсырманың шешу жолын талқылауды сабақтан толық алып тастау",
-          "оқушының өз ойын айтуын шектеп, бір ғана үлгіні қайталату"
-        ],
-        "correct": [
-          0
-        ],
-        "explanation": "Дамытушылық міндет оқушының ойлау операцияларын, математикалық тілін, дәлелдеу және қорытынды жасау қабілетін дамытумен байланысты."
+            "title": "Оқыту принциптері мен әдістері",
+            "desc": "Саналылық, көрнекілік, жүйелілік, беріктік принциптері және оқыту әдістерін таңдау.",
+            "questions": [
+                  {
+                        "type": "single",
+                        "text": "Саналылық және белсенділік принципіне сәйкес келетін жауапты таңдаңыз.",
+                        "options": [
+                              "Оқушының ережені түсініп, әрекетті саналы орындауы және шешімді негіздеуі",
+                              "Оқушының материалды ретімен оқып, тақырыптар арасындағы байланысты сақтауы",
+                              "Оқушының ұғымды көрнекілік арқылы қабылдап, нақты бейнеге сүйенуі",
+                              "Оқушының білімді жаттығу арқылы бекітіп, ұзақ уақыт есте сақтауы",
+                              "Оқушының тапсырманы шамасына сай орындап, оқу жүктемесін жеңіл қабылдауы"
+                        ],
+                        "correct": [
+                              0
+                        ],
+                        "explanation": "Саналылық принципі білімді түсіну, дәлелдеу және белсенді қолданумен байланысты."
+                  },
+                  {
+                        "type": "single",
+                        "text": "Көрнекілік принципінің әдістемелік мәнін көрсететін жауапты таңдаңыз.",
+                        "options": [
+                              "Ұғымды нақты зат, модель, сурет, сызба және кесте арқылы түсіндіру",
+                              "Ұғымды ереже, анықтама, термин, формула және мәтін арқылы жүйелеу",
+                              "Ұғымды жаттығу, қайталау, бекіту, бақылау және түзету арқылы орнықтыру",
+                              "Ұғымды жоспар, мақсат, нәтиже, рефлексия және бағалау арқылы ұйымдастыру",
+                              "Ұғымды сұрақ, жауап, талдау, дәлелдеу және қорытынды арқылы ашу"
+                        ],
+                        "correct": [
+                              0
+                        ],
+                        "explanation": "Көрнекілік принципі бастауыш оқушысына математикалық ұғымды нақты бейнелер арқылы түсінуге көмектеседі."
+                  },
+                  {
+                        "type": "single",
+                        "text": "Жүйелілік және бірізділік принципіне сәйкес келетін жауапты таңдаңыз.",
+                        "options": [
+                              "Оқу материалын логикалық ретпен, алдыңғы білімге сүйене отырып беру",
+                              "Оқу материалын көрнекі құралмен, модельмен және сызбамен көрсету",
+                              "Оқу материалын жаттығу арқылы бекітіп, нәтижесін бақылау",
+                              "Оқу материалын оқушы қызығушылығына сүйеніп, өмірмен байланыстыру",
+                              "Оқу материалын жеке қарқынға сай жеңілден күрделіге қарай бейімдеу"
+                        ],
+                        "correct": [
+                              0
+                        ],
+                        "explanation": "Жүйелілік принципі мазмұнның логикалық ретпен және сабақтастықпен берілуін талап етеді."
+                  },
+                  {
+                        "type": "multi",
+                        "text": "Математиканы оқытуда жиі қолданылатын әдістерді таңдаңыз.",
+                        "options": [
+                              "Түсіндіру әдісі",
+                              "Әңгімелесу әдісі",
+                              "Жаттығу әдісі",
+                              "Тарификация әдісі",
+                              "Құжаттау әдісі",
+                              "Инвентарлау әдісі",
+                              "Маркетинг әдісі",
+                              "Архивтеу әдісі"
+                        ],
+                        "correct": [
+                              0,
+                              1,
+                              2
+                        ],
+                        "explanation": "Түсіндіру, әңгімелесу, жаттығу сияқты әдістер математиканы оқытуда негізгі дидактикалық әдістер ретінде қолданылады."
+                  },
+                  {
+                        "type": "single",
+                        "text": "Проблемалық оқыту әдісіне сәйкес келетін жауапты таңдаңыз.",
+                        "options": [
+                              "Оқушыны қиындықты байқауға, болжам жасауға, шешім іздеуге және қорытындылауға бағыттау",
+                              "Оқушыны ережені көшіруге, үлгіні қайталауға, жауапты жаттауға және қайта айтуға бағыттау",
+                              "Оқушыны құралды таңдауға, өлшем жүргізуге, нәтижені белгілеуге және салыстыруға бағыттау",
+                              "Оқушыны мәтінді оқуға, шартты бөлуге, сұрақты табуға және қысқаша жазуға бағыттау",
+                              "Оқушыны фигураны атауға, қабырғаны санауға, сызба салуға және белгі қоюға бағыттау"
+                        ],
+                        "correct": [
+                              0
+                        ],
+                        "explanation": "Проблемалық оқытуда оқушы дайын білімді алмай, мәселені шешу арқылы білімге келеді."
+                  },
+                  {
+                        "type": "single",
+                        "text": "Жаттығу әдісінің негізгі қызметін таңдаңыз.",
+                        "options": [
+                              "Білік пен дағдыны қайталау, қолдану және бекіту арқылы қалыптастыру",
+                              "Ұғымның шығу тарихын баяндау, мысал келтіру және салыстыру арқылы түсіндіру",
+                              "Оқу мақсатын анықтау, күтілетін нәтижені белгілеу және бағалау критерийін құру",
+                              "Оқушының көңіл күйін бақылау, қарым-қатынасын реттеу және топтық ортаны ұйымдастыру",
+                              "Сабақ құрылымын жоспарлау, уақытты бөлу және ресурстарды орналастыру"
+                        ],
+                        "correct": [
+                              0
+                        ],
+                        "explanation": "Жаттығу әдісі есептеу, өлшеу, салыстыру сияқты дағдыларды бекітуге қызмет етеді."
+                  },
+                  {
+                        "type": "multi",
+                        "text": "Әдісті таңдауда ескерілетін әдістемелік шарттарды таңдаңыз.",
+                        "options": [
+                              "Оқу мақсатының сипаты",
+                              "Материал мазмұнының ерекшелігі",
+                              "Оқушының дайындық деңгейі",
+                              "Мектеп ғимаратының ауданы",
+                              "Асхана жұмысының кестесі",
+                              "Кабинет мүлкінің бағасы",
+                              "Қызметкер демалысының мерзімі",
+                              "Қаржылық есептің нысаны"
+                        ],
+                        "correct": [
+                              0,
+                              1,
+                              2
+                        ],
+                        "explanation": "Әдіс мақсатқа, мазмұнға және оқушы деңгейіне сәйкес таңдалады."
+                  },
+                  {
+                        "type": "single",
+                        "text": "Индуктивті әдіске сәйкес келетін оқыту бағытын таңдаңыз.",
+                        "options": [
+                              "Жеке мысалдардан ортақ қорытындыға келу",
+                              "Жалпы ережеден жеке мысалды шығару",
+                              "Дайын алгоритмнен есептеу тәсілін орындау",
+                              "Сызба бойынша фигура қасиетін сипаттау",
+                              "Өлшеу нәтижесі бойынша шаманы салыстыру"
+                        ],
+                        "correct": [
+                              0
+                        ],
+                        "explanation": "Индукцияда оқушы бірнеше нақты мысалды талдап, жалпы қорытынды жасайды."
+                  },
+                  {
+                        "type": "single",
+                        "text": "Дедуктивті әдіске сәйкес келетін оқыту бағытын таңдаңыз.",
+                        "options": [
+                              "Жалпы ережені нақты тапсырмада қолдану",
+                              "Жеке мысалдарды салыстырып ортақ белгі табу",
+                              "Көрнекі модель арқылы ұғымды бейнелеу",
+                              "Жаттығу арқылы есептеу дағдысын бекіту",
+                              "Мәтінді есеп бойынша қысқаша жазу құру"
+                        ],
+                        "correct": [
+                              0
+                        ],
+                        "explanation": "Дедукцияда жалпы қағида немесе ереже нақты есептерді шешуде қолданылады."
+                  },
+                  {
+                        "type": "single",
+                        "text": "Қолжетімділік принципіне сәйкес келетін жауапты таңдаңыз.",
+                        "options": [
+                              "Материалды оқушының жасына, даярлығына және қабылдау мүмкіндігіне сай беру",
+                              "Материалды ғылыми жүйеге, терминдік дәлдікке және теориялық толықтыққа сай беру",
+                              "Материалды көрнекі бейнеге, модельге және практикалық әрекетке сай беру",
+                              "Материалды қайталауға, бекітуге және бақылау нәтижесіне сай беру",
+                              "Материалды өмірлік жағдайға, тәжірибеге және қолдану аясына сай беру"
+                        ],
+                        "correct": [
+                              0
+                        ],
+                        "explanation": "Қолжетімділік принципі оқу материалының оқушы мүмкіндігіне сай болуын талап етеді."
+                  }
+            ]
       },
       {
-        "type": "multi",
-        "level": "B",
-        "text": "Математиканы оқытудың негізгі міндеттерін таңдаңыз.",
-        "options": [
-          "білімділік міндет",
-          "дамытушылық міндет",
-          "тәрбиелік міндет",
-          "әкімшілік есеп жүргізу міндеті",
-          "кадрлық орналастыру міндеті",
-          "шаруашылық бақылау міндеті",
-          "мектеп мүлкін түгендеу міндеті",
-          "сабақ кестесін бекіту міндеті"
-        ],
-        "correct": [
-          0,
-          1,
-          2
-        ],
-        "explanation": "Математиканы оқытудың дәстүрлі негізгі міндеттері — білімділік, дамытушылық және тәрбиелік міндеттер."
+            "title": "Сабақ құрылымы және оқу әрекетін ұйымдастыру",
+            "desc": "Сабақ кезеңдері, мақсат қою, тапсырма жүйесі, топтық және жеке жұмыс ұйымдастыру.",
+            "questions": [
+                  {
+                        "type": "single",
+                        "text": "Математика сабағының құрылымын дұрыс сипаттайтын жауапты таңдаңыз.",
+                        "options": [
+                              "Мақсат қою, жаңа материалды меңгерту, бекіту, бағалау және қорытындылау кезеңдерінің жүйесі",
+                              "Құжат жинау, бұйрық шығару, есеп тапсыру, тіркеу және мұрағаттау кезеңдерінің жүйесі",
+                              "Кабинет дайындау, құрал бөлу, мүлік санау, сақтау және жөндеу кезеңдерінің жүйесі",
+                              "Іс-шара жоспарлау, сценарий жазу, қатысушы бөлу, өткізу және марапаттау кезеңдерінің жүйесі",
+                              "Кадр таңдау, жүктеме бөлу, тариф бекіту, бақылау және есептеу кезеңдерінің жүйесі"
+                        ],
+                        "correct": [
+                              0
+                        ],
+                        "explanation": "Сабақ құрылымы оқу мақсатына жетуге бағытталған дидактикалық кезеңдерден тұрады."
+                  },
+                  {
+                        "type": "single",
+                        "text": "Сабақ мақсатын қоюда негізгі бағдар болатын жауапты таңдаңыз.",
+                        "options": [
+                              "Оқу бағдарламасындағы оқу мақсаты және күтілетін нәтиже",
+                              "Сынып бөлмесінің орналасуы және құралдар тізімі",
+                              "Мектептің әкімшілік жоспары және есеп беру мерзімі",
+                              "Кабинет паспорты және материалдық жауапкершілік",
+                              "Іс-шара күнтізбесі және тәрбие жұмысының бағыты"
+                        ],
+                        "correct": [
+                              0
+                        ],
+                        "explanation": "Математика сабағының мақсаты оқу бағдарламасындағы оқу мақсаттарына сүйеніп қойылады."
+                  },
+                  {
+                        "type": "single",
+                        "text": "Жаңа материалды меңгерту кезеңінің мазмұнын таңдаңыз.",
+                        "options": [
+                              "Жаңа ұғымды, ережені немесе тәсілді түсіндіру және алғашқы қолдануды ұйымдастыру",
+                              "Бұрынғы білімді еске түсіру, сұрақтар қою және дайындық жаттығуын орындау",
+                              "Орындалған тапсырмаларды талдау, қателерді түзету және нәтиже шығару",
+                              "Үй тапсырмасын түсіндіру, орындау жолын нақтылау және талаптарды белгілеу",
+                              "Оқушы жауабын бағалау, кері байланыс беру және рефлексия ұйымдастыру"
+                        ],
+                        "correct": [
+                              0
+                        ],
+                        "explanation": "Жаңа материал кезеңінде ұғым немесе тәсіл түсіндіріліп, алғашқы қолдану әрекеті орындалады."
+                  },
+                  {
+                        "type": "multi",
+                        "text": "Математика сабағында оқу әрекетін ұйымдастыру формаларын таңдаңыз.",
+                        "options": [
+                              "Жеке жұмыс",
+                              "Жұптық жұмыс",
+                              "Топтық жұмыс",
+                              "Кадрлық жұмыс",
+                              "Қаржылық жұмыс",
+                              "Шаруашылық жұмыс",
+                              "Әкімшілік жұмыс",
+                              "Мұрағаттық жұмыс"
+                        ],
+                        "correct": [
+                              0,
+                              1,
+                              2
+                        ],
+                        "explanation": "Сабақта жеке, жұптық, топтық және фронтальды жұмыс түрлері қолданылады."
+                  },
+                  {
+                        "type": "single",
+                        "text": "Бекіту кезеңіне сәйкес келетін тапсырма түрін таңдаңыз.",
+                        "options": [
+                              "Жаңа тәсілді ұқсас және өзгертілген жағдайларда қолдануға арналған жаттығулар",
+                              "Жаңа тақырыптың атауын хабарлауға арналған кіріспе сұрақтар",
+                              "Оқу мақсатын түсіндіруге арналған қысқа нұсқаулықтар",
+                              "Сабақ соңындағы көңіл күйді белгілеуге арналған рефлексия парағы",
+                              "Үй тапсырмасын жазуға арналған күнделік жұмысы"
+                        ],
+                        "correct": [
+                              0
+                        ],
+                        "explanation": "Бекіту кезеңінде оқушы жаңа білімді жаттығулар арқылы қолданады."
+                  },
+                  {
+                        "type": "single",
+                        "text": "Қысқа мерзімді жоспардың әдістемелік қызметін таңдаңыз.",
+                        "options": [
+                              "Сабақ мақсатын, тапсырмаларды, әдістерді, бағалауды және ресурстарды үйлестіру",
+                              "Мектеп мүлкін, жабдықтарды, кабинетті және сақтау орнын есепке алу",
+                              "Қызметкер жүктемесін, кестесін, демалысын және еңбек есебін реттеу",
+                              "Тәрбие іс-шарасын, сценарийді, қатысушыны және марапаттауды жоспарлау",
+                              "Қаржылық шығынды, сметаны, төлемді және есепті құжаттандыру"
+                        ],
+                        "correct": [
+                              0
+                        ],
+                        "explanation": "ҚМЖ сабақтың барлық негізгі компоненттерін бір мақсатқа бағындырып ұйымдастырады."
+                  },
+                  {
+                        "type": "multi",
+                        "text": "Математика сабағында тиімді тапсырма жүйесіне тән белгілерді таңдаңыз.",
+                        "options": [
+                              "Мақсатқа сәйкестік",
+                              "Күрделіліктің біртіндеп артуы",
+                              "Оқушы әрекетінің белсенділігі",
+                              "Тақырыптардың кездейсоқ берілуі",
+                              "Жаттығулардың байланыссыз орналасуы",
+                              "Шарттардың түсініксіз құрылуы",
+                              "Нәтиженің белгісіз қалуы",
+                              "Талаптардың жүйесіз өзгеруі"
+                        ],
+                        "correct": [
+                              0,
+                              1,
+                              2
+                        ],
+                        "explanation": "Тиімді тапсырма жүйесі мақсатқа сай, біртіндеп күрделенетін және оқушы әрекетін белсенді ететін болуы керек."
+                  },
+                  {
+                        "type": "single",
+                        "text": "Сабақтағы рефлексияның негізгі қызметін таңдаңыз.",
+                        "options": [
+                              "Оқушының өз оқу нәтижесін түсінуі, қиындықты анықтауы және келесі қадамды белгілеуі",
+                              "Оқушының жаңа ережені қабылдауы, анықтаманы жазуы және үлгіні көшіруі",
+                              "Оқушының есептеу тәсілін орындауы, өрнек мәнін табуы және жауабын жазуы",
+                              "Оқушының фигураны атауы, сызба салуы және өлшем жүргізуі",
+                              "Оқушының мәтінді оқуы, шартын бөлуі және сұрағын анықтауы"
+                        ],
+                        "correct": [
+                              0
+                        ],
+                        "explanation": "Рефлексия оқушыға өз оқуын бағалауға және келесі әрекетін түсінуге көмектеседі."
+                  },
+                  {
+                        "type": "single",
+                        "text": "Фронтальды жұмыстың сипаттамасын таңдаңыз.",
+                        "options": [
+                              "Бүкіл сыныптың мұғалім басшылығымен ортақ тапсырманы орындауы",
+                              "Әр оқушының жеке деңгейіне сәйкес дербес тапсырманы орындауы",
+                              "Екі оқушының бір тапсырманы бірлесіп талдап орындауы",
+                              "Шағын топтың ортақ шешім жасап, нәтижесін қорғауы",
+                              "Оқушының үйде берілген тапсырманы өз бетімен орындауы"
+                        ],
+                        "correct": [
+                              0
+                        ],
+                        "explanation": "Фронтальды жұмыста мұғалім бүкіл сыныппен бір мезгілде жұмыс жүргізеді."
+                  },
+                  {
+                        "type": "single",
+                        "text": "Деңгейлік тапсырмаларды қолданудың әдістемелік мақсатын таңдаңыз.",
+                        "options": [
+                              "Оқушылардың дайындық айырмашылығын ескеріп, әрқайсысына қолжетімді оқу әрекетін ұйымдастыру",
+                              "Оқушылардың бірдей жауап беруін қамтамасыз етіп, барлық тапсырманы бір үлгіде орындау",
+                              "Оқушылардың сабақ уақытын қысқартып, тек дайын алгоритмді қолдануын ұйымдастыру",
+                              "Оқушылардың бағасын бірдей шығарып, оқу нәтижесін ортақ көрсеткішпен белгілеу",
+                              "Оқушылардың жұмысын мұғалім көмегінсіз толық бақылаусыз қалдыру"
+                        ],
+                        "correct": [
+                              0
+                        ],
+                        "explanation": "Деңгейлік тапсырмалар оқушы мүмкіндігіне қарай жұмыс ұйымдастыруға мүмкіндік береді."
+                  }
+            ]
       },
       {
-        "type": "single",
-        "level": "B",
-        "text": "Тәрбиелік міндет математиканы оқытуда қалай көрінеді?",
-        "options": [
-          "дәлдікке, жүйелілікке, жауапкершілікке, еңбекқорлыққа және ұқыптылыққа тәрбиелеу",
-          "оқушының есептеу жылдамдығын мінез-құлық бағасымен алмастыру",
-          "математикалық дәлелдеуді тәртіптік ескертумен шектеу",
-          "сабақта тек жарыс ұйымдастырып, оқу мақсатын ескермеу",
-          "қате жауап берген оқушыны оқу әрекетінен шеттету"
-        ],
-        "correct": [
-          0
-        ],
-        "explanation": "Математика сабағында тәрбиелік міндет дәл ойлау, дәл жазу, жүйелі жұмыс, жауапкершілік және ұқыптылық арқылы іске асады."
+            "title": "Математикалық ұғымдарды қалыптастыру",
+            "desc": "Ұғым, термин, таңба, ереже және алгоритмді меңгерту жолдары.",
+            "questions": [
+                  {
+                        "type": "single",
+                        "text": "Математикалық ұғымды қалыптастырудың дұрыс әдістемелік бағытын таңдаңыз.",
+                        "options": [
+                              "Нақты әрекеттен көрнекі модельге, одан абстрактілі түсінікке көшу",
+                              "Дайын анықтамадан жаттығуға, одан көшіріп жазуға көшу",
+                              "Терминді жаттаудан бағалауға, одан қорытынды бағаға көшу",
+                              "Ережені оқудан бақылауға, одан әкімшілік есепке көшу",
+                              "Құралды таңдаудан рәсімдеуге, одан кабинет есебіне көшу"
+                        ],
+                        "correct": [
+                              0
+                        ],
+                        "explanation": "Бастауышта ұғым нақты заттық әрекет, көрнекі бейне және абстрактілі белгі арқылы қалыптасады."
+                  },
+                  {
+                        "type": "single",
+                        "text": "Сан ұғымын қалыптастыруда негізгі әрекетті таңдаңыз.",
+                        "options": [
+                              "Заттарды санау, санмен сәйкестендіру және сан қатарындағы орнын анықтау",
+                              "Фигураны сызу, қабырғасын өлшеу және бұрыштарын белгілеу",
+                              "Өрнек мәнін табу, амал тәртібін сақтау және жауабын жазу",
+                              "Шаманы өлшеу, бірлігін таңдау және нәтижесін түрлендіру",
+                              "Мәтінді оқу, шартын белгілеу және шешу жоспарын құру"
+                        ],
+                        "correct": [
+                              0
+                        ],
+                        "explanation": "Сан ұғымы санау әрекеті және жиын элементтерін санмен сәйкестендіру арқылы меңгеріледі."
+                  },
+                  {
+                        "type": "single",
+                        "text": "Теңдік ұғымын түсіндіруге сәйкес жауапты таңдаңыз.",
+                        "options": [
+                              "Екі өрнектің мәні бірдей екенін теңдік белгісі арқылы көрсету",
+                              "Екі фигураның пішіні бірдей екенін сызба арқылы көрсету",
+                              "Екі шаманың өлшем бірлігі бірдей екенін құрал арқылы көрсету",
+                              "Екі есептің шарты ұқсас екенін мәтін арқылы көрсету",
+                              "Екі санның разряды бірдей екенін кесте арқылы көрсету"
+                        ],
+                        "correct": [
+                              0
+                        ],
+                        "explanation": "Теңдік ұғымы екі жақтағы мәндердің тең болуын білдіреді."
+                  },
+                  {
+                        "type": "multi",
+                        "text": "Математикалық ұғымды меңгертуде қолданылатын құралдарды таңдаңыз.",
+                        "options": [
+                              "Нақты заттар",
+                              "Сызбалық модельдер",
+                              "Таңбалық жазулар",
+                              "Қызметтік бұйрықтар",
+                              "Қаржылық құжаттар",
+                              "Кадрлық кестелер",
+                              "Мұрағат тізімдері",
+                              "Шаруашылық актілер"
+                        ],
+                        "correct": [
+                              0,
+                              1,
+                              2
+                        ],
+                        "explanation": "Ұғым нақты зат, модель және таңбалық жазу арқылы біртіндеп қалыптасады."
+                  },
+                  {
+                        "type": "single",
+                        "text": "Математикалық терминді меңгертуде дұрыс бағытты таңдаңыз.",
+                        "options": [
+                              "Терминнің мағынасын нақты әрекетпен, мысалмен және дұрыс қолданумен байланыстыру",
+                              "Терминнің жазылуын ұзақ көшіріп, дыбысталуын жаттатумен шектеу",
+                              "Терминді сабақ тақырыбынан бөлек беріп, сөздік ретінде ғана сақтау",
+                              "Терминді бағалау парағына енгізіп, ұпай қою құралы ретінде қолдану",
+                              "Терминді құжат нысанына енгізіп, есеп беру элементі ретінде рәсімдеу"
+                        ],
+                        "correct": [
+                              0
+                        ],
+                        "explanation": "Термин тек атау емес, ұғым мазмұнын білдіретін тілдік құрал ретінде меңгертіледі."
+                  },
+                  {
+                        "type": "single",
+                        "text": "Алгоритмді оқытуға сәйкес келетін жауапты таңдаңыз.",
+                        "options": [
+                              "Әрекет қадамдарын ретімен түсіндіріп, үлгіде көрсетіп, жаттығуда қолдандыру",
+                              "Ұғым белгілерін салыстырып, ортақ қасиетін анықтап, анықтама құрастыру",
+                              "Фигура пішінін бақылап, бөліктерін атап, кеңістік қатынасын сипаттау",
+                              "Шаманы құралмен өлшеп, бірлігін жазып, нәтижесін салыстыру",
+                              "Есеп шартын талдап, сұрағын белгілеу және шешім жоспарын құру"
+                        ],
+                        "correct": [
+                              0
+                        ],
+                        "explanation": "Алгоритмді меңгерту әрекеттер ретін түсіну және оны есепте қолдану арқылы іске асады."
+                  },
+                  {
+                        "type": "multi",
+                        "text": "Ұғым қалыптастыруда оқушы орындайтын танымдық әрекеттерді таңдаңыз.",
+                        "options": [
+                              "Салыстыру",
+                              "Жалпылау",
+                              "Нақтылау",
+                              "Тарификациялау",
+                              "Инвентарлау",
+                              "Архивтеу",
+                              "Қаржыландыру",
+                              "Хаттамалау"
+                        ],
+                        "correct": [
+                              0,
+                              1,
+                              2
+                        ],
+                        "explanation": "Салыстыру, жалпылау және нақтылау ұғымды саналы меңгеруге көмектеседі."
+                  },
+                  {
+                        "type": "single",
+                        "text": "Ереже енгізудің дұрыс әдістемелік жолын таңдаңыз.",
+                        "options": [
+                              "Мысалдарды талдау арқылы ортақ заңдылықты байқатып, ережені қорытындылау",
+                              "Ережені сабақ басында жаздырып, мағынасын талдамай жаттатқызу",
+                              "Ережені бағалау критерийіне енгізіп, тексеру соңында хабарлау",
+                              "Ережені тақырыптан бөлек беріп, келесі сабақта кездейсоқ қолдану",
+                              "Ережені құжат түрінде рәсімдеп, оқу материалынан тыс сақтау"
+                        ],
+                        "correct": [
+                              0
+                        ],
+                        "explanation": "Ереже оқушы үшін мысалдарды талдау арқылы түсінікті қорытынды ретінде қалыптасуы керек."
+                  },
+                  {
+                        "type": "single",
+                        "text": "Математикалық таңбаны меңгертуде дұрыс тәсілді таңдаңыз.",
+                        "options": [
+                              "Таңбаның мағынасын әрекетпен байланыстырып, жазылуын және қолданылуын көрсету",
+                              "Таңбаның сыртқы түрін көшіртіп, мағынасын кейінгі тақырыпқа қалдыру",
+                              "Таңбаны сәндік белгі ретінде көрсетіп, есеп шығаруда қолданбау",
+                              "Таңбаны тек мұғалім жазуында қалдырып, оқушы әрекетіне қоспау",
+                              "Таңбаны бағалау парағында белгілеп, оқу мазмұнынан бөлек қолдану"
+                        ],
+                        "correct": [
+                              0
+                        ],
+                        "explanation": "Таңба мағынамен және нақты математикалық әрекетпен байланыста меңгертіледі."
+                  },
+                  {
+                        "type": "single",
+                        "text": "Қате ұғым қалыптасуын түзетудің әдістемелік жолын таңдаңыз.",
+                        "options": [
+                              "Қатенің себебін анықтап, қарсы мысал ұсынып, дұрыс әрекетті қайта ұйымдастыру",
+                              "Қатені жалпы бағамен белгілеп, келесі тапсырмаға түсіндірмесіз көшу",
+                              "Қатені оқушы есіне салып, дайын жауапты көшіріп жаздыру",
+                              "Қатені сабақ соңына қалдырып, талдауды үй жұмысына беру",
+                              "Қатені елемей, дұрыс жауапты ғана тақтада көрсету"
+                        ],
+                        "correct": [
+                              0
+                        ],
+                        "explanation": "Қатені түзету үшін оның себебін ашып, дұрыс ұғымды қайта құру қажет."
+                  }
+            ]
       },
       {
-        "type": "single",
-        "level": "C",
-        "text": "Әдістемелік талдауда «нені оқыту керек?» сұрағы қай құрамдас бөлікке қатысты?",
-        "options": [
-          "оқыту мазмұнына",
-          "оқыту формасына",
-          "оқыту нәтижесін тіркеуге",
-          "оқыту құралын сақтауға",
-          "оқыту уақытын белгілеуге"
-        ],
-        "correct": [
-          0
-        ],
-        "explanation": "«Нені оқыту керек?» деген сұрақ оқу мазмұнын, яғни қандай ұғымдар, амалдар, заңдылықтар, есептер оқытылатынын анықтайды."
+            "title": "Есеп шығару әдістемесі",
+            "desc": "Мәтінді есепті талдау, қысқаша жазу, шешу жоспары, амал таңдау және тексеру.",
+            "questions": [
+                  {
+                        "type": "single",
+                        "text": "Мәтінді есеппен жұмыстың алғашқы кезеңін таңдаңыз.",
+                        "options": [
+                              "Есеп мәтінін түсініп оқу және шартындағы берілгендерді анықтау",
+                              "Есеп шешімін жазу және соңғы жауапты белгілеу",
+                              "Есеп жауабын салыстыру және нәтижені бағалау",
+                              "Есепке ұқсас жаңа тапсырма құрастыру",
+                              "Есептің амалдарын орындап, өрнек мәнін табу"
+                        ],
+                        "correct": [
+                              0
+                        ],
+                        "explanation": "Мәтінді есепті шешу мәтінді түсінуден және берілгендерді анықтаудан басталады."
+                  },
+                  {
+                        "type": "single",
+                        "text": "Қысқаша жазудың негізгі қызметін таңдаңыз.",
+                        "options": [
+                              "Есептегі берілгендер мен ізделінді арасындағы байланысты көрнекі көрсету",
+                              "Есептің арифметикалық амалын бірден орындап, нәтижені қысқарту",
+                              "Есептің жауабын дайын түрде жазып, шешу жолын алмастыру",
+                              "Есептің мәтінін толық көшіріп, сөз санын азайту",
+                              "Есептің бағасын қоюға арналған белгі ретінде қолдану"
+                        ],
+                        "correct": [
+                              0
+                        ],
+                        "explanation": "Қысқаша жазу берілгендер, сұрақ және байланыстарды көрнекі құрылымға түсіреді."
+                  },
+                  {
+                        "type": "single",
+                        "text": "Амал таңдауға негіз болатын әдістемелік әрекетті таңдаңыз.",
+                        "options": [
+                              "Шарттағы шамалар арасындағы математикалық қатынасты анықтау",
+                              "Мәтіндегі барлық сөздерді грамматикалық тұрғыдан талдау",
+                              "Есептің жазылу көлемін және сөйлем санын анықтау",
+                              "Жауаптың сыртқы рәсімделуін және жол санын белгілеу",
+                              "Сызбаның түсін және өлшемін көркемдік тұрғыдан таңдау"
+                        ],
+                        "correct": [
+                              0
+                        ],
+                        "explanation": "Амал есептегі шамалар арасындағы қатынасты түсіну арқылы таңдалады."
+                  },
+                  {
+                        "type": "multi",
+                        "text": "Мәтінді есепті шешудің негізгі кезеңдерін таңдаңыз.",
+                        "options": [
+                              "Есеп шартын талдау",
+                              "Шешу жоспарын құру",
+                              "Жауабын тексеру",
+                              "Сынып журналын толтыру",
+                              "Кабинет құралын түгендеу",
+                              "Іс-шара сценарийін жазу",
+                              "Қызметтік хат дайындау",
+                              "Қаржылық есеп жасау"
+                        ],
+                        "correct": [
+                              0,
+                              1,
+                              2
+                        ],
+                        "explanation": "Есеппен жұмыс шартты талдау, жоспар құру, шешу, тексеру және жауап беру кезеңдерін қамтиды."
+                  },
+                  {
+                        "type": "single",
+                        "text": "Кері есеп құрастырудың әдістемелік мақсатын таңдаңыз.",
+                        "options": [
+                              "Берілгендер мен ізделіндінің байланысын терең түсіндіру",
+                              "Есеп мәтінін қысқартып, оқуды жылдамдату",
+                              "Жауапты жаттатып, есептеу жұмысын азайту",
+                              "Сызба жасауды алмастырып, шартты алып тастау",
+                              "Бағалау уақытын қысқартып, тек нәтижені белгілеу"
+                        ],
+                        "correct": [
+                              0
+                        ],
+                        "explanation": "Кері есеп оқушыға шамалар арасындағы өзара байланысты түсінуге көмектеседі."
+                  },
+                  {
+                        "type": "single",
+                        "text": "Құрама есепті шешуге үйретудің дұрыс жолын таңдаңыз.",
+                        "options": [
+                              "Есепті бірнеше қарапайым байланысқа бөліп, әр қадамның амалын негіздеу",
+                              "Есептің жауабын алдын ала беріп, барлық амалдарды сол жауапқа сәйкестендіру",
+                              "Есеп мәтінін толық көшіріп, шешу жолын қысқа белгімен алмастыру",
+                              "Есепті бір амалмен шығаруға мәжбүрлеп, аралық нәтижені қолданбау",
+                              "Есептің суретін салдырып, математикалық байланысты талдамау"
+                        ],
+                        "correct": [
+                              0
+                        ],
+                        "explanation": "Құрама есеп бірнеше қарапайым байланыстан тұрады, сондықтан оны қадаммен талдау керек."
+                  },
+                  {
+                        "type": "multi",
+                        "text": "Есеп шығаруда қолданылатын модельдеу түрлерін таңдаңыз.",
+                        "options": [
+                              "Қысқаша жазу",
+                              "Сызба",
+                              "Кесте",
+                              "Тарификациялық тізім",
+                              "Қойма актісі",
+                              "Кадрлық бұйрық",
+                              "Мұрағат карточкасы",
+                              "Қаржы сметасы"
+                        ],
+                        "correct": [
+                              0,
+                              1,
+                              2
+                        ],
+                        "explanation": "Мәтінді есепті түсіндіруде қысқаша жазу, сызба және кесте сияқты модельдер қолданылады."
+                  },
+                  {
+                        "type": "single",
+                        "text": "Есеп жауабын тексерудің дұрыс тәсілін таңдаңыз.",
+                        "options": [
+                              "Алынған нәтижені есеп шартымен салыстырып, мағынасына сәйкестігін анықтау",
+                              "Алынған нәтижені көркем жазу үлгісімен салыстырып, сыртқы түрін бағалау",
+                              "Алынған нәтижені тақырып атауымен салыстырып, бөлім ретін тексеру",
+                              "Алынған нәтижені сынып кестесімен салыстырып, уақытын белгілеу",
+                              "Алынған нәтижені журнал нөмірімен салыстырып, құжатқа енгізу"
+                        ],
+                        "correct": [
+                              0
+                        ],
+                        "explanation": "Тексеру нәтиженің есеп шартына және сұрағына сәйкес келуін анықтайды."
+                  },
+                  {
+                        "type": "single",
+                        "text": "Есептің сұрағын дұрыс түсінудің мәнін таңдаңыз.",
+                        "options": [
+                              "Ізделіндіні анықтап, шешу бағытын дұрыс таңдауға мүмкіндік береді",
+                              "Берілген сандарды көшіріп, жазу көлемін көбейтуге мүмкіндік береді",
+                              "Сызбаны безендіріп, көрнекілік түрін таңдауға мүмкіндік береді",
+                              "Бағаны алдын ала қойып, жауапты қысқартуға мүмкіндік береді",
+                              "Тапсырманы ауыстырып, басқа тақырыпқа көшуге мүмкіндік береді"
+                        ],
+                        "correct": [
+                              0
+                        ],
+                        "explanation": "Сұрақ ізделіндіні көрсетеді, сондықтан шешу жоспары соған сүйенеді."
+                  },
+                  {
+                        "type": "single",
+                        "text": "Оқушы есеп шығаруда амал таңдай алмаса, мұғалімнің тиімді көмегін таңдаңыз.",
+                        "options": [
+                              "Жетелеуші сұрақтар арқылы шамалар арасындағы байланысты байқату",
+                              "Дайын амалды айтып, оқушыға тек нәтижесін есептеткізу",
+                              "Есепті келесі сабаққа қалдырып, талдаусыз өткізіп жіберу",
+                              "Жауапты тақтаға жазып, шешу жолын көшірту",
+                              "Оқушының орнына толық шешімді орындап беру"
+                        ],
+                        "correct": [
+                              0
+                        ],
+                        "explanation": "Жетелеуші сұрақ оқушының өз ойлау әрекетін сақтап, байланыс табуына көмектеседі."
+                  }
+            ]
       },
       {
-        "type": "single",
-        "level": "C",
-        "text": "Әдістемелік талдауда «қалай оқыту керек?» сұрағы қай бағытты ашады?",
-        "options": [
-          "оқыту әдістері мен тәсілдерін таңдауды",
-          "оқу жылының демалыс кестесін анықтауды",
-          "мектеп ғимаратының санитарлық жағдайын бағалауды",
-          "педагогтің еңбек шартын рәсімдеуді",
-          "электрондық журналдың техникалық баптауын"
-        ],
-        "correct": [
-          0
-        ],
-        "explanation": "«Қалай оқыту керек?» сұрағы әдіс, тәсіл, жұмыс формасы және оқушы әрекетін ұйымдастыру жолдарын таңдаумен байланысты."
+            "title": "Бағалау және оқу нәтижесін бақылау",
+            "desc": "Қалыптастырушы бағалау, кері байланыс, қателерді талдау және оқу жетістігін анықтау.",
+            "questions": [
+                  {
+                        "type": "single",
+                        "text": "Қалыптастырушы бағалаудың негізгі мақсатын таңдаңыз.",
+                        "options": [
+                              "Оқу барысындағы қиындықты анықтап, оқушыға уақытылы кері байланыс беру",
+                              "Оқу жылы соңындағы қорытынды бағаны шығарып, құжатқа енгізу",
+                              "Сыныптың әкімшілік есебін жүргізіп, қатысу журналын толтыру",
+                              "Мектептің материалдық қорын есептеп, құралдарды түгендеу",
+                              "Пән кабинетін рәсімдеп, көрнекілік тізімін бекіту"
+                        ],
+                        "correct": [
+                              0
+                        ],
+                        "explanation": "Қалыптастырушы бағалау оқыту үдерісін жақсарту үшін кері байланыс беруге бағытталады."
+                  },
+                  {
+                        "type": "single",
+                        "text": "Тиімді кері байланыстың белгісін таңдаңыз.",
+                        "options": [
+                              "Оқушыға нақты жетістігін, қатесін және келесі қадамын түсіндіру",
+                              "Оқушыға жалпы баға айтып, жұмыс мазмұнын талдаусыз қалдыру",
+                              "Оқушыға дайын жауап беріп, тапсырманы қайта орындамауға мүмкіндік жасау",
+                              "Оқушыға тек уақытын көрсетіп, оқу нәтижесін түсіндірмеу",
+                              "Оқушыға салыстырмалы орын беріп, жеке қиындықты талдамау"
+                        ],
+                        "correct": [
+                              0
+                        ],
+                        "explanation": "Тиімді кері байланыс нақты, түсінікті және келесі әрекетке бағытталған болады."
+                  },
+                  {
+                        "type": "single",
+                        "text": "Математикадағы қатемен жұмыс жасаудың әдістемелік мәнін таңдаңыз.",
+                        "options": [
+                              "Қатенің себебін анықтап, дұрыс тәсілді қайта түсіндіру және бекіту",
+                              "Қатені бағаға айналдырып, тапсырманы түсіндірмей аяқтау",
+                              "Қатені оқушыға көшіртіп, жаңа тақырыпқа бірден көшу",
+                              "Қатені журналда белгілеп, сабақ мазмұнын өзгертпеу",
+                              "Қатені елемей, дұрыс жауапты ғана жариялау"
+                        ],
+                        "correct": [
+                              0
+                        ],
+                        "explanation": "Қатемен жұмыс білімдегі олқылықты анықтап, оны түзетуге мүмкіндік береді."
+                  },
+                  {
+                        "type": "multi",
+                        "text": "Математика сабағында бағалау критерийі нені нақтылауы мүмкін?",
+                        "options": [
+                              "Есептеу тәсілін дұрыс қолдану",
+                              "Шешу жолын негіздеу",
+                              "Жауаптың мағынасын тексеру",
+                              "Кабинет мүлкін сақтау",
+                              "Сабақ кестесін бекіту",
+                              "Құжаттарды тіркеу",
+                              "Мектеп формасын бақылау",
+                              "Асхана тәртібін сақтау"
+                        ],
+                        "correct": [
+                              0,
+                              1,
+                              2
+                        ],
+                        "explanation": "Бағалау критерийі оқу мақсатына сай нақты математикалық әрекетті бағалайды."
+                  },
+                  {
+                        "type": "single",
+                        "text": "Диагностикалық тапсырманың қызметін таңдаңыз.",
+                        "options": [
+                              "Оқушының бастапқы білімін, түсіну деңгейін және қиындық аймағын анықтау",
+                              "Оқушының тәрбие іс-шарасына қатысуын және белсенділігін белгілеу",
+                              "Оқушының дене дайындығын, спорттық нәтижесін және қозғалысын бағалау",
+                              "Оқушының сыныптағы әлеуметтік рөлін және қарым-қатынасын сипаттау",
+                              "Оқушының құжаттарын, анықтамаларын және өтініштерін тексеру"
+                        ],
+                        "correct": [
+                              0
+                        ],
+                        "explanation": "Диагностика оқытуға дейін немесе оқыту барысында білім деңгейін анықтауға көмектеседі."
+                  },
+                  {
+                        "type": "single",
+                        "text": "Бақылау жұмысының әдістемелік мақсатын таңдаңыз.",
+                        "options": [
+                              "Белгілі тақырып бойынша білім, білік және дағдының қалыптасу деңгейін анықтау",
+                              "Сабақтың кіріспе бөлігін ұйымдастырып, жаңа тақырыпқа қызығушылық туғызу",
+                              "Оқушының топтағы рөлін анықтап, қарым-қатынас мәдениетін қалыптастыру",
+                              "Кабинет құралдарын пайдаланып, көрнекіліктерді орналастыру",
+                              "Үй тапсырмасының көлемін азайтып, оқу уақытын қысқарту"
+                        ],
+                        "correct": [
+                              0
+                        ],
+                        "explanation": "Бақылау жұмысы оқушының нақты оқу нәтижесін анықтау үшін қолданылады."
+                  },
+                  {
+                        "type": "multi",
+                        "text": "Математикада оқу нәтижесін бағалауға болатын әрекеттерді таңдаңыз.",
+                        "options": [
+                              "Есептеу алгоритмін қолдану",
+                              "Мәтінді есепті талдау",
+                              "Геометриялық фигураны сипаттау",
+                              "Сынып бөлмесін безендіру",
+                              "Құжат нөмірін тіркеу",
+                              "Кабинет кілтін сақтау",
+                              "Асхана тізімін жасау",
+                              "Кесте кезекшілігін бөлу"
+                        ],
+                        "correct": [
+                              0,
+                              1,
+                              2
+                        ],
+                        "explanation": "Бағалау математикалық әрекеттерге: есептеу, талдау, сипаттау, дәлелдеу, қолдануға негізделеді."
+                  },
+                  {
+                        "type": "single",
+                        "text": "Өзін-өзі бағалаудың оқушы үшін маңызын таңдаңыз.",
+                        "options": [
+                              "Өз жұмысын талдап, жетістігі мен қиындықтарын саналы түсінуге мүмкіндік береді",
+                              "Мұғалімнің бағасын алмастырып, қорытынды бағаны толық өзі қоюға мүмкіндік береді",
+                              "Сыныптағы барлық оқушыға бірдей нәтиже беруге мүмкіндік береді",
+                              "Тапсырманы орындамай, жауапты алдын ала таңдауға мүмкіндік береді",
+                              "Сабақ кезеңдерін қысқартып, бақылауды алып тастауға мүмкіндік береді"
+                        ],
+                        "correct": [
+                              0
+                        ],
+                        "explanation": "Өзін-өзі бағалау оқушының оқу жауапкершілігін және рефлексиясын дамытады."
+                  },
+                  {
+                        "type": "single",
+                        "text": "Жиынтық бағалауға сәйкес келетін жауапты таңдаңыз.",
+                        "options": [
+                              "Белгілі бөлім немесе кезең соңында оқу нәтижесін қорытындылап бағалау",
+                              "Әр тапсырма кезінде оқушыға ауызша бағыт беріп, түзету жасау",
+                              "Жаңа ұғымды нақты заттар арқылы түсіндіріп, модель құру",
+                              "Сабақ басында алдыңғы білімді еске түсіріп, сұрақ қою",
+                              "Жаттығу барысында есептеу тәсілін бірнеше рет қайталау"
+                        ],
+                        "correct": [
+                              0
+                        ],
+                        "explanation": "Жиынтық бағалау бөлім, тоқсан немесе оқу кезеңі соңында нәтижені қорытындылайды."
+                  },
+                  {
+                        "type": "single",
+                        "text": "Бағалау нәтижесін оқытуды жақсартуға қолданудың дұрыс жолын таңдаңыз.",
+                        "options": [
+                              "Қиындықтарды талдап, келесі сабақтағы тапсырма мен түсіндіруді түзету",
+                              "Ұпайды жариялап, тақырыпты түсіндірмей аяқтау",
+                              "Нәтижені құжатқа енгізіп, оқу әрекетін өзгертпеу",
+                              "Қатені оқушыға ғана қалдырып, сыныппен талқыламау",
+                              "Бағаны салыстырып, тапсырма мазмұнын қайта қарамау"
+                        ],
+                        "correct": [
+                              0
+                        ],
+                        "explanation": "Бағалау дерегі келесі оқыту қадамын жоспарлауға қолданылуы керек."
+                  }
+            ]
       },
       {
-        "type": "multi",
-        "level": "C",
-        "text": "Математиканы оқыту әдістемесінің зерттеу нысанына кіретін элементтерді белгілеңіз.",
-        "options": [
-          "оқыту мақсаты",
-          "оқыту мазмұны",
-          "оқыту әдістері",
-          "ғимараттың жөндеу сметасы",
-          "асхана мәзірінің құрамы",
-          "кадрлық бұйрық үлгісі",
-          "мектеп жиһазының түсі",
-          "спорт секциясының кестесі"
-        ],
-        "correct": [
-          0,
-          1,
-          2
-        ],
-        "explanation": "Әдістеме үшін маңызды элементтер — мақсат, мазмұн, әдістер, құралдар, формалар және нәтиже. Қалғандары тікелей әдістемелік мазмұн емес."
-      },
-      {
-        "type": "single",
-        "level": "B",
-        "text": "Бастауыш математика курсының кейінгі оқу деңгейлерімен байланысын білдіретін қағида қайсы?",
-        "options": [
-          "сабақтастық қағидасы",
-          "кездейсоқтық қағидасы",
-          "оқшаулау қағидасы",
-          "әкімшілік бөлу қағидасы",
-          "формалды тіркеу қағидасы"
-        ],
-        "correct": [
-          0
-        ],
-        "explanation": "Сабақтастық қағидасы бастауыштағы білімнің кейінгі сыныптардағы алгебра, геометрия және функционалдық сауаттылыққа негіз болуын қамтамасыз етеді."
-      },
-      {
-        "type": "single",
-        "level": "C",
-        "text": "Математиканы оқытудағы практикалық бағыттылықтың мәні қандай?",
-        "options": [
-          "математикалық білімді өмірлік және оқу-танымдық жағдайларда қолдануға үйрету",
-          "есепті тек ережені жаттау үшін қолдану",
-          "өлшеу және есептеу әрекеттерін сабақтан тыс қалдыру",
-          "мәтінді есептерді мазмұнын талдамай шештіру",
-          "оқушы тәжірибесін математикалық тапсырмамен байланыстырмау"
-        ],
-        "correct": [
-          0
-        ],
-        "explanation": "Практикалық бағыттылық математикалық білімді өлшеу, есептеу, салыстыру, модельдеу және өмірлік жағдайды талдау үшін қолдануға үйретеді."
+            "title": "Көрнекілік, құралдар және цифрлық ресурстар",
+            "desc": "Модельдер, сызбалар, дидактикалық материалдар және цифрлық құралдарды қолдану.",
+            "questions": [
+                  {
+                        "type": "single",
+                        "text": "Математика сабағында көрнекі құралды таңдаудың негізгі талабын көрсетіңіз.",
+                        "options": [
+                              "Құралдың оқу мақсатына, ұғым мазмұнына және оқушы жасына сәйкес болуы",
+                              "Құралдың түсі, көлемі, бағасы және сақтау орны бойынша ыңғайлы болуы",
+                              "Құралдың кабинет тізіміне, мүлік нөміріне және құжат нысанына енгізілуі",
+                              "Құралдың мектеп іс-шарасына, безендіру жоспарына және көркемдік талапқа сай болуы",
+                              "Құралдың әкімшілік есепке, қойма актісіне және қаржылық құжатқа сәйкес болуы"
+                        ],
+                        "correct": [
+                              0
+                        ],
+                        "explanation": "Көрнекілік оқу мақсатына және оқушының түсінуіне қызмет етуі керек."
+                  },
+                  {
+                        "type": "single",
+                        "text": "Сан құрамын түсіндіруде тиімді көрнекілікті таңдаңыз.",
+                        "options": [
+                              "Санау таяқшалары, фишкалар, разрядтық кесте және сан сәулесі",
+                              "Карта, компас, масштаб, шартты белгі және бағыт сызығы",
+                              "Музыкалық аспап, нота, ырғақ кестесі және дыбыс үлгісі",
+                              "Тарихи сурет, хронология, дерек және тұлға портреті",
+                              "Зертханалық ыдыс, реактив, тәжірибе құралы және бақылау парағы"
+                        ],
+                        "correct": [
+                              0
+                        ],
+                        "explanation": "Сан құрамы нақты санау материалы және разрядтық модель арқылы жақсы түсіндіріледі."
+                  },
+                  {
+                        "type": "single",
+                        "text": "Сызбаның мәтінді есеп шығарудағы қызметін таңдаңыз.",
+                        "options": [
+                              "Шамалар арасындағы байланысты көрнекі түрде көрсету",
+                              "Есептің мәтінін көркем түрде безендіру",
+                              "Жауапты жазудың сыртқы үлгісін ауыстыру",
+                              "Бағалау парағын қысқа түрде рәсімдеу",
+                              "Сабақ уақытын әкімшілік тұрғыдан белгілеу"
+                        ],
+                        "correct": [
+                              0
+                        ],
+                        "explanation": "Сызба есептегі байланыстарды көруге және амал таңдауға көмектеседі."
+                  },
+                  {
+                        "type": "multi",
+                        "text": "Математика сабағында қолданылатын дидактикалық құралдарды таңдаңыз.",
+                        "options": [
+                              "Сан сәулесі",
+                              "Разрядтық кесте",
+                              "Геометриялық модель",
+                              "Қызметтік бұйрық",
+                              "Қаржылық смета",
+                              "Кадрлық тізім",
+                              "Мүлік актісі",
+                              "Асхана мәзірі"
+                        ],
+                        "correct": [
+                              0,
+                              1,
+                              2
+                        ],
+                        "explanation": "Сан сәулесі, разрядтық кесте және геометриялық модель математика мазмұнын түсіндіруге арналған құралдар."
+                  },
+                  {
+                        "type": "single",
+                        "text": "Цифрлық ресурсты қолданудың әдістемелік шарты қай жауапта дұрыс берілген?",
+                        "options": [
+                              "Ресурс оқу мақсатын ашып, оқушы әрекетін белсендіруге қызмет етуі керек",
+                              "Ресурс сабақта уақытты толтырып, негізгі түсіндіруді алмастыруы керек",
+                              "Ресурс сыртқы безендіру үшін қолданылып, мазмұнға әсер етпеуі керек",
+                              "Ресурс тек мұғалім көрсетілімі болып, оқушы әрекетін қоспауы керек",
+                              "Ресурс бағалау нәтижесін талдамай, дайын жауапты ғана көрсетуі керек"
+                        ],
+                        "correct": [
+                              0
+                        ],
+                        "explanation": "Цифрлық құрал оқыту мақсатына бағындырылып, оқушының түсінуін күшейтуі қажет."
+                  },
+                  {
+                        "type": "single",
+                        "text": "Манипулятивтік материалдардың бастауыштағы артықшылығын таңдаңыз.",
+                        "options": [
+                              "Оқушыға математикалық қатынасты нақты әрекет арқылы түсінуге мүмкіндік береді",
+                              "Оқушыға барлық ережені жазбай, тек ауызша жауап беруге мүмкіндік береді",
+                              "Оқушыға тапсырманы орындамай, нәтижені алдын ала таңдауға мүмкіндік береді",
+                              "Оқушыға сабақ құрылымын өзгертіп, бағалауды алып тастауға мүмкіндік береді",
+                              "Оқушыға есеп шартын оқымай, амалдарды кездейсоқ орындауға мүмкіндік береді"
+                        ],
+                        "correct": [
+                              0
+                        ],
+                        "explanation": "Манипулятивтік материалдар абстрактілі ұғымды нақты әрекетпен байланыстырады."
+                  },
+                  {
+                        "type": "multi",
+                        "text": "Геометриялық материалды түсіндіруге сәйкес құралдарды таңдаңыз.",
+                        "options": [
+                              "Фигуралар жиыны",
+                              "Сызғыш",
+                              "Геометриялық модельдер",
+                              "Орфографиялық сөздік",
+                              "Тарихи хронология",
+                              "Музыкалық нота",
+                              "Карта масштабы",
+                              "Зертханалық реактив"
+                        ],
+                        "correct": [
+                              0,
+                              1,
+                              2
+                        ],
+                        "explanation": "Фигуралар, сызғыш және модельдер геометриялық түсініктерді қалыптастыруға көмектеседі."
+                  },
+                  {
+                        "type": "single",
+                        "text": "Көрнекілікті қолданудағы әдістемелік қателікті көрсететін жауапты таңдаңыз.",
+                        "options": [
+                              "Көрнекілікті мақсатпен байланыстырмай, тек сыртқы безендіру ретінде қолдану",
+                              "Көрнекілікті ұғым мағынасын ашу, салыстыру және қорытындылау үшін қолдану",
+                              "Көрнекілікті оқушы әрекетімен байланыстырып, бақылау және талдау ұйымдастыру",
+                              "Көрнекілікті нақтыдан абстрактіге көшу құралы ретінде пайдалану",
+                              "Көрнекілікті есеп шарты мен математикалық байланысты көрсету үшін пайдалану"
+                        ],
+                        "correct": [
+                              0
+                        ],
+                        "explanation": "Көрнекілік оқу мақсатына қызмет етпесе, ол әдістемелік мәнін жоғалтады."
+                  },
+                  {
+                        "type": "single",
+                        "text": "Интерактивті тапсырманың тиімділігін анықтайтын белгісін таңдаңыз.",
+                        "options": [
+                              "Оқушының жауап таңдау, тексеру, түзету және қайта орындау әрекетін ұйымдастыруы",
+                              "Оқушының дайын жауапты көру, көшіріп жазу және түсіндірмесіз сақтау әрекетін ұйымдастыруы",
+                              "Оқушының сабақтан тыс ойын, жарыс және марапаттау әрекетін ұйымдастыруы",
+                              "Оқушының құжат толтыру, белгі қою және есеп тапсыру әрекетін ұйымдастыруы",
+                              "Оқушының көркем сурет салу, бояу және безендіру әрекетін ұйымдастыруы"
+                        ],
+                        "correct": [
+                              0
+                        ],
+                        "explanation": "Интерактивті тапсырма оқушыға белсенді әрекет жасап, қателерін түзетуге жағдай жасағанда тиімді болады."
+                  },
+                  {
+                        "type": "single",
+                        "text": "Сан сәулесін қолданудың әдістемелік мақсатын таңдаңыз.",
+                        "options": [
+                              "Сандардың ретін, салыстырылуын және қосу-азайту әрекетін көрнекі көрсету",
+                              "Фигуралардың пішінін, қабырғасын және бұрышын көрнекі көрсету",
+                              "Шамалардың өлшем бірлігін, құралын және нәтижесін көрнекі көрсету",
+                              "Есеп мәтінінің шартын, сұрағын және жауабын көрнекі көрсету",
+                              "Сабақ кезеңдерінің уақытын, тапсырмасын және бағасын көрнекі көрсету"
+                        ],
+                        "correct": [
+                              0
+                        ],
+                        "explanation": "Сан сәулесі сан қатары мен амалдардың мағынасын көрнекі түсіндіреді."
+                  }
+            ]
       }
-    ]
-  },
-  {
-    "title": "Математиканы оқыту әдістері мен құралдары",
-    "desc": "Сөздік, көрнекілік, практикалық, проблемалық әдістер және оқу құралдарын таңдау.",
-    "questions": [
-      {
-        "type": "single",
-        "level": "A",
-        "text": "Түсіндіру, әңгіме, сұрақ-жауап қандай әдістер тобына жатады?",
-        "options": [
-          "сөздік әдістерге",
-          "көрнекілік әдістерге",
-          "практикалық әдістерге",
-          "зертханалық әдістерге",
-          "графикалық әдістерге"
-        ],
-        "correct": [
-          0
-        ],
-        "explanation": "Мұғалім мен оқушының ауызша тілдік әрекетіне негізделген әдістер сөздік әдістер деп аталады."
-      },
-      {
-        "type": "single",
-        "level": "B",
-        "text": "Көрнекілік әдіс тиімді болуы үшін мұғалім ең алдымен нені ескеруі керек?",
-        "options": [
-          "көрнекіліктің оқу мақсатына және ұғым мазмұнына сәйкестігін",
-          "көрнекіліктің сабақтағы әсемдік әсерін ғана",
-          "көрнекіліктің көлемі үлкен болуын ғана",
-          "көрнекілікті түсіндірмесіз көрсету мүмкіндігін",
-          "көрнекілікті барлық тапсырма орнына қолдануды"
-        ],
-        "correct": [
-          0
-        ],
-        "explanation": "Көрнекілік оқушыға ұғымның маңызды белгілерін байқауға көмектесуі керек, сондықтан ол мақсат пен мазмұнға сай таңдалады."
-      },
-      {
-        "type": "single",
-        "level": "B",
-        "text": "Практикалық әдіске тән оқу әрекетін таңдаңыз.",
-        "options": [
-          "өлшеу, есептеу, модель құрастыру және тапсырманы өздігінен орындау",
-          "ережені тек мұғалімнің айтуы бойынша тыңдау",
-          "дайын қорытындыны дәлелдеусіз қабылдау",
-          "суретті тақырыппен байланыстырмай қарау",
-          "мәтінді есеп шартын оқымай жауап белгілеу"
-        ],
-        "correct": [
-          0
-        ],
-        "explanation": "Практикалық әдіс оқушының нақты әрекет орындауына: өлшеуге, есептеуге, құрастыруға, модельдеуге сүйенеді."
-      },
-      {
-        "type": "multi",
-        "level": "B",
-        "text": "Математика сабағында қолданылатын негізгі оқыту құралдарын таңдаңыз.",
-        "options": [
-          "оқулық және жұмыс дәптері",
-          "сандық сәуле, кесте, сызба",
-          "өлшеу құралдары мен модельдер",
-          "асхана жабдықтары",
-          "кадрлық құжаттар",
-          "мектеп мөрі",
-          "қойма журналы",
-          "тәртіп бұйрығы"
-        ],
-        "correct": [
-          0,
-          1,
-          2
-        ],
-        "explanation": "Оқу құралдары математикалық мазмұнды түсіндіруге, әрекет орындауға және нәтижені көрсетуге қызмет етеді."
-      },
-      {
-        "type": "single",
-        "level": "C",
-        "text": "Проблемалық оқытудың негізгі белгісі қай жауапта берілген?",
-        "options": [
-          "оқушыны танымдық қиындықты шешуге бағыттайтын проблемалық жағдаят құру",
-          "оқушыға дайын шешімді толық көшіртіп беру",
-          "сұрақ қоймай, тек мұғалімнің монологын қолдану",
-          "тапсырманы оқу мақсатынсыз көбейту",
-          "қате жауапты талдамай бірден келесі тақырыпқа өту"
-        ],
-        "correct": [
-          0
-        ],
-        "explanation": "Проблемалық оқытуда оқушы дайын білімді ғана алмайды, мәселені түсініп, болжам жасап, шешім іздейді."
-      },
-      {
-        "type": "single",
-        "level": "B",
-        "text": "Индуктивті әдіс математика сабағында қалай іске асады?",
-        "options": [
-          "жеке мысалдарды талдау арқылы жалпы ереже немесе қорытындыға келу",
-          "жалпы ережеден бірден жеке мысалға көшу",
-          "дәлелдеуді қолданбай тек анықтаманы жаттау",
-          "оқу әрекетін тек бақылау парағына тіркеу",
-          "тақырыпты оқушы тәжірибесінен толық бөлу"
-        ],
-        "correct": [
-          0
-        ],
-        "explanation": "Индукцияда оқушы бірнеше нақты мысалды салыстырып, ортақ белгісін байқайды да жалпы қорытынды шығарады."
-      },
-      {
-        "type": "single",
-        "level": "B",
-        "text": "Дедуктивті әдістің сипаттамасын таңдаңыз.",
-        "options": [
-          "жалпы ереже немесе қасиеттен нақты есептің шешіміне көшу",
-          "бірнеше мысалдан ережені өздігінен шығару",
-          "өлшеу нәтижесін кестеге түсірмей қалдыру",
-          "ұғым белгілерін салыстырмай есте сақтау",
-          "оқушы әрекетін тек ауызша мадақтаумен шектеу"
-        ],
-        "correct": [
-          0
-        ],
-        "explanation": "Дедукция жалпы қағида, ереже, формула немесе қасиетті нақты жағдайға қолдануға негізделеді."
-      },
-      {
-        "type": "multi",
-        "level": "C",
-        "text": "Әдісті таңдауға әсер ететін шарттарды белгілеңіз.",
-        "options": [
-          "сабақ мақсаты",
-          "оқушылардың дайындық деңгейі",
-          "оқу материалының мазмұны",
-          "мектептің сыртқы бояуы",
-          "кабинет есігінің орналасуы",
-          "сынып журналының мұқабасы",
-          "мұғалімнің жеке құжаты",
-          "асханадағы үзіліс мәзірі"
-        ],
-        "correct": [
-          0,
-          1,
-          2
-        ],
-        "explanation": "Әдіс мақсатқа, мазмұнға, оқушы деңгейіне, уақытқа және құралдарға сай таңдалады."
-      },
-      {
-        "type": "single",
-        "level": "C",
-        "text": "Дифференциация әдістемелік тұрғыдан нені білдіреді?",
-        "options": [
-          "оқушы мүмкіндігіне қарай тапсырманың деңгейін, қолдауын немесе көлемін бейімдеу",
-          "барлық оқушыға бірдей қиындықтағы тапсырманы өзгеріссіз беру",
-          "жылдам оқитын оқушыларға ғана оқу мақсатын түсіндіру",
-          "қате жіберген оқушыны тапсырмадан босату",
-          "топтық жұмысты бағалаудан толық алып тастау"
-        ],
-        "correct": [
-          0
-        ],
-        "explanation": "Дифференциация оқушының дайындық деңгейін ескеріп, оқу мақсатына жетуге жағдай жасайды."
-      },
-      {
-        "type": "single",
-        "level": "B",
-        "text": "Математика сабағында сандық технологияны қолданудың әдістемелік шарты қандай?",
-        "options": [
-          "цифрлық құрал оқу мақсатын түсінуге және әрекетті тексеруге қызмет етуі керек",
-          "цифрлық құрал сабақ мазмұнын толық алмастыруы керек",
-          "бағдарлама тек ойын элементі үшін қолданылуы керек",
-          "құрал қолданылса, мұғалім түсіндіруі қажет болмайды",
-          "технология оқушының ойлау әрекетін қысқартуы керек"
-        ],
-        "correct": [
-          0
-        ],
-        "explanation": "Цифрлық құрал мақсатқа сай болса ғана тиімді: ол түсінуді, модельдеуді, тексеруді немесе кері байланысты күшейтуі керек."
-      }
-    ]
-  },
-  {
-    "title": "Математикалық ұғымдарды қалыптастыру әдістемесі",
-    "desc": "Ұғым белгілері, анықтама, мысал және қарсы мысал, амалдар мен қасиеттерді меңгерту.",
-    "questions": [
-      {
-        "type": "single",
-        "level": "B",
-        "text": "Математикалық ұғымды қалыптастырудың бастапқы кезеңіне ең жақын әрекетті таңдаңыз.",
-        "options": [
-          "нақты заттар мен жағдайлар арқылы ұғымның маңызды белгілерін байқату",
-          "анықтаманы мағынасын ашпай жаттатқызу",
-          "есептің жауабын тек дайын кілтпен салыстыру",
-          "тақырыпты алдыңғы біліммен байланыстырмай бастау",
-          "ұғымды тек термин ретінде жаздыру"
-        ],
-        "correct": [
-          0
-        ],
-        "explanation": "Ұғым қалыптастыру нақты әрекеттен, бақылаудан, салыстырудан және маңызды белгілерді бөліп көрсетуден басталады."
-      },
-      {
-        "type": "single",
-        "level": "B",
-        "text": "Ұғымның маңызды белгісін анықтауға көмектесетін әдістемелік тәсіл қайсы?",
-        "options": [
-          "мысалдар мен қарсы мысалдарды салыстыру",
-          "терминді бірнеше рет көшіріп жазу",
-          "жауап нұсқаларын кездейсоқ ауыстыру",
-          "есепті шартын оқымай шығару",
-          "бағаны тек жылдамдық бойынша қою"
-        ],
-        "correct": [
-          0
-        ],
-        "explanation": "Мысал және қарсы мысал ұғымға кіретін және кірмейтін объектілерді ажыратуға көмектеседі."
-      },
-      {
-        "type": "single",
-        "level": "C",
-        "text": "Анықтаманы енгізудің әдістемелік дұрыс жолын таңдаңыз.",
-        "options": [
-          "оқушылар маңызды белгілерді байқағаннан кейін анықтаманы нақтылау",
-          "тақырып басталмай тұрып анықтаманы механикалық жаттату",
-          "анықтаманы есеп шығарумен байланыстырмай қалдыру",
-          "анықтаманы бір ғана белгі арқылы толық деп қабылдау",
-          "анықтаманы қарсы мысалсыз қолдануға тыйым салу"
-        ],
-        "correct": [
-          0
-        ],
-        "explanation": "Анықтама оқушы үшін мағыналы болуы үшін ол бақылау, салыстыру және маңызды белгілерді анықтаудан кейін жүйеленеді."
-      },
-      {
-        "type": "multi",
-        "level": "B",
-        "text": "Математикалық ұғымды меңгертуде қолданылатын тиімді әрекеттерді таңдаңыз.",
-        "options": [
-          "объектілерді салыстыру",
-          "маңызды белгілерді бөліп көрсету",
-          "ұғымды есепте қолдану",
-          "терминді мағынасыз қайталау",
-          "жауапты түсіндірмей белгілеу",
-          "қате мысалды талдамау",
-          "тапсырманы мақсатсыз көбейту",
-          "ұғымды басқа тақырыптан оқшаулау"
-        ],
-        "correct": [
-          0,
-          1,
-          2
-        ],
-        "explanation": "Ұғым салыстыру, белгілерін тану және қолдану арқылы меңгеріледі."
-      },
-      {
-        "type": "single",
-        "level": "B",
-        "text": "Сан ұғымын қалыптастыруда ең орынды көрнекілік әрекет қайсы?",
-        "options": [
-          "заттарды санау, топтау, салыстыру және санмен сәйкестендіру",
-          "сан атауын заттармен байланыстырмай жаттау",
-          "цифрды тек әдемі жазу үлгісі ретінде қарастыру",
-          "есептеуді өлшеу әрекетінен толық бөлу",
-          "санды тек тақтадағы белгі ретінде түсіндіру"
-        ],
-        "correct": [
-          0
-        ],
-        "explanation": "Сан ұғымы нақты жиындарды санау, салыстыру және цифрмен белгілеу арқылы қалыптасады."
-      },
-      {
-        "type": "single",
-        "level": "C",
-        "text": "Амал ұғымын меңгертуде оқушы нені түсінуі керек?",
-        "options": [
-          "амалдың мағынасын, орындалу жағдайын, қасиетін және нәтижесін",
-          "амал таңбасын тек графикалық белгі ретінде",
-          "амал нәтижесін тек жатталған кесте ретінде",
-          "амал орындауды мәтінді есептен бөлек әрекет ретінде",
-          "амал қасиетін дәлелсіз кездейсоқ ереже ретінде"
-        ],
-        "correct": [
-          0
-        ],
-        "explanation": "Амал ұғымы оның мағынасы, таңбасы, орындалу тәсілі, қасиеті және есептерде қолданылуы арқылы толық меңгеріледі."
-      },
-      {
-        "type": "single",
-        "level": "B",
-        "text": "Геометриялық ұғымды қалыптастыруда қай әрекет маңызды?",
-        "options": [
-          "пішінді бақылау, сызу, өлшеу және қасиеттерін салыстыру",
-          "пішін атауын тек сөздік тізім ретінде жаттау",
-          "сызбаны өлшемімен байланыстырмай көшіру",
-          "геометриялық объектіні сандық амалмен алмастыру",
-          "пішіннің қасиетін бір ғана суретпен шектеу"
-        ],
-        "correct": [
-          0
-        ],
-        "explanation": "Геометриялық ұғым көрнекі бейне, практикалық сызу-өлшеу және қасиеттерді талдау арқылы қалыптасады."
-      },
-      {
-        "type": "multi",
-        "level": "C",
-        "text": "Ұғымды бекітуге арналған тапсырмалар қандай болуы керек?",
-        "options": [
-          "ұғымды тануға арналған",
-          "ұғымды қолдануға арналған",
-          "ұғымды салыстыруға арналған",
-          "тақырыптан тыс жаттауға арналған",
-          "оқу мақсатынсыз көшіріп жазуға арналған",
-          "қатені жасырмай өткізуге арналған",
-          "бағаны ғана көрсетуге арналған",
-          "оқушы әрекетін шектеуге арналған"
-        ],
-        "correct": [
-          0,
-          1,
-          2
-        ],
-        "explanation": "Бекіту тапсырмалары ұғымды тану, қолдану, салыстыру, жалпылау және қатені түзету әрекеттерін қамтуы керек."
-      },
-      {
-        "type": "single",
-        "level": "C",
-        "text": "Оқушы ұғымды формалды меңгергенін көрсететін белгі қайсы?",
-        "options": [
-          "терминді айтады, бірақ мысал мен қарсы мысалды ажырата алмайды",
-          "ұғымның маңызды белгілерін түсіндіреді және қолданады",
-          "әртүрлі жағдайда ұғымды дұрыс таниды",
-          "есеп шығарғанда ұғымды дәл пайдаланады",
-          "өз жауабын ұғым белгілерімен негіздейді"
-        ],
-        "correct": [
-          0
-        ],
-        "explanation": "Формалды меңгеру — терминді айту бар, бірақ мағына, белгі және қолдану толық қалыптаспаған жағдай."
-      },
-      {
-        "type": "single",
-        "level": "B",
-        "text": "Математикалық тіл ұғымды қалыптастыруда қандай қызмет атқарады?",
-        "options": [
-          "ойды дәл айтуға, белгілеуге, түсіндіруге және дәлелдеуге мүмкіндік береді",
-          "оқушының әрекетін тек жазу көлемімен бағалауға мүмкіндік береді",
-          "есептің шешу жолын түсіндіруді қажетсіз етеді",
-          "ұғымның мағынасын көрнекіліктен толық бөледі",
-          "тақырыпты тек терминдер тізіміне айналдырады"
-        ],
-        "correct": [
-          0
-        ],
-        "explanation": "Математикалық тіл ұғымның мағынасын дәл жеткізуге, белгілеуге және пайымдауды негіздеуге көмектеседі."
-      }
-    ]
-  },
-  {
-    "title": "Математика сабағының құрылымы және ұйымдастыру",
-    "desc": "Сабақ мақсаты, кезеңдері, оқушы әрекеті, топтық және жеке жұмыс, сабақтағы кері байланыс.",
-    "questions": [
-      {
-        "type": "single",
-        "level": "B",
-        "text": "Сабақ мақсатын әдістемелік тұрғыдан дұрыс қою нені талап етеді?",
-        "options": [
-          "оқу мақсатына сәйкес күтілетін нәтижені нақты көрсету",
-          "сабақ атауын ғана тақтаға жазу",
-          "тапсырма санын көбейтуді басты мақсат ету",
-          "оқушы әрекетін жоспардан тыс қалдыру",
-          "бағалау өлшемін сабақ соңында кездейсоқ таңдау"
-        ],
-        "correct": [
-          0
-        ],
-        "explanation": "Мақсат оқушы не үйренетінін және қандай әрекет арқылы нәтижеге жететінін нақты көрсетуі керек."
-      },
-      {
-        "type": "single",
-        "level": "B",
-        "text": "Жаңа материалды меңгерту кезеңінің негізгі қызметі қандай?",
-        "options": [
-          "жаңа ұғымды, ережені немесе тәсілді түсіндіру және оны алғашқы қолдануға бағыттау",
-          "үй тапсырмасын тек баға қою үшін тексеру",
-          "сабақты ұйымдастыру уақытын ұзарту",
-          "қорытындыны тақырыппен байланыстырмай айту",
-          "оқушыны практикалық әрекеттен босату"
-        ],
-        "correct": [
-          0
-        ],
-        "explanation": "Жаңа материал кезеңінде түсіндіру, талдау, үлгі көрсету және алғашқы қолдану ұйымдастырылады."
-      },
-      {
-        "type": "single",
-        "level": "B",
-        "text": "Бекіту кезеңінде қолданылатын орынды әрекетті таңдаңыз.",
-        "options": [
-          "жаңа білімді әртүрлі тапсырмада қолдану және қатені түзету",
-          "жаңа тақырыпты түсіндірмей келесі бөлімге өту",
-          "оқушы жауабын талдамай тек белгі қою",
-          "есеп шартын оқымай жауапты салыстыру",
-          "сабақ мақсатын тапсырмадан бөлек ұстау"
-        ],
-        "correct": [
-          0
-        ],
-        "explanation": "Бекіту оқушының жаңа білімді қолдануын, қатесін көруін және тәсілді тұрақтандыруын қамтамасыз етеді."
-      },
-      {
-        "type": "single",
-        "level": "B",
-        "text": "Сабақта топтық жұмысты ұйымдастырудың әдістемелік шарты қандай?",
-        "options": [
-          "әр оқушының рөлі мен ортақ нәтижесі анық болуы",
-          "топқа тапсырманы түсіндірмей беру",
-          "топтық жұмысты бағалаусыз қалдыру",
-          "барлық жұмысты бір оқушыға жүктеу",
-          "топ құрамын оқу мақсатынсыз өзгерту"
-        ],
-        "correct": [
-          0
-        ],
-        "explanation": "Топтық жұмыс тиімді болуы үшін рөл, тапсырма, уақыт, нәтиже және бағалау өлшемі түсінікті болуы керек."
-      },
-      {
-        "type": "multi",
-        "level": "B",
-        "text": "Қысқа мерзімді жоспардың мазмұнына кіретін негізгі элементтерді таңдаңыз.",
-        "options": [
-          "сабақ мақсаты",
-          "бағалау критерийі",
-          "оқу тапсырмалары",
-          "кабинет жиһазының тізімі",
-          "асхана кезекшілігі",
-          "мектеп мөрінің үлгісі",
-          "қойма есебі",
-          "сыртқы хабарландыру"
-        ],
-        "correct": [
-          0,
-          1,
-          2
-        ],
-        "explanation": "ҚМЖ сабақ мақсаты, бағалау критерийі, тапсырмалар, әдістер, ресурстар және кері байланысты қамтиды."
-      },
-      {
-        "type": "single",
-        "level": "B",
-        "text": "Сабақтағы рефлексияның мақсаты қандай?",
-        "options": [
-          "оқушының не түсінгенін, қандай қиындық көргенін және келесі қадамын анықтау",
-          "сабақ уақытын тек толтыру",
-          "үй тапсырмасын түсіндірмей беру",
-          "оқушы қатесін талдамай жабу",
-          "оқу мақсатын бағалаудан бөлу"
-        ],
-        "correct": [
-          0
-        ],
-        "explanation": "Рефлексия оқушы мен мұғалімге оқу нәтижесін түсінуге және келесі жұмысты жоспарлауға көмектеседі."
-      },
-      {
-        "type": "single",
-        "level": "B",
-        "text": "Математика сабағында уақытты тиімді бөлу нені қамтамасыз етеді?",
-        "options": [
-          "әр кезеңнің мақсатына сай әрекеттердің толық орындалуын",
-          "тапсырмалардың ретсіз берілуін",
-          "түсіндіру кезеңінің шексіз ұзартылуын",
-          "оқушының дербес жұмысын алып тастауды",
-          "қорытынды кезеңін сабақтан шығарып тастауды"
-        ],
-        "correct": [
-          0
-        ],
-        "explanation": "Уақытты жоспарлау ұйымдастыру, түсіндіру, жаттығу, бағалау және қорытынды кезеңдерінің теңгерімін сақтайды."
-      },
-      {
-        "type": "single",
-        "level": "B",
-        "text": "Сабақ құрылымындағы мотивациялық кезеңнің қызметі қандай?",
-        "options": [
-          "оқушыны тақырыпқа қызықтырып, оқу мақсатына бағыттау",
-          "бағаны алдын ала қою",
-          "үй тапсырмасын тек көшірту",
-          "қате жауаптарды жасыру",
-          "оқулықты сабақ мақсатынсыз аштыру"
-        ],
-        "correct": [
-          0
-        ],
-        "explanation": "Мотивациялық кезең жаңа тақырыптың қажеттілігін сезіндіреді және оқушының танымдық белсенділігін оятады."
-      },
-      {
-        "type": "single",
-        "level": "B",
-        "text": "Сараланған тапсырма құрастыруда не ескеріледі?",
-        "options": [
-          "оқушының дайындық деңгейі мен қолдауға қажеттілігі",
-          "партаның орналасу түсі",
-          "сынып журналының нөмірі",
-          "оқушының сабақтан тыс хоббиі ғана",
-          "мектеп қоңырауының ұзақтығы"
-        ],
-        "correct": [
-          0
-        ],
-        "explanation": "Саралау оқушының деңгейіне, оқу қарқынына, қолдау түріне және мақсатқа жету жолына негізделеді."
-      },
-      {
-        "type": "single",
-        "level": "B",
-        "text": "Сабақ соңындағы қорытындылаудың дұрыс мазмұнын таңдаңыз.",
-        "options": [
-          "негізгі ұғымды, қолданылған тәсілді және жеткен нәтижені жинақтау",
-          "келесі тақырыпты себепсіз бастау",
-          "тек тәртіп туралы ескерту жасау",
-          "оқушы жауабын тек санмен белгілеу",
-          "тапсырма шешімін талдаусыз жабу"
-        ],
-        "correct": [
-          0
-        ],
-        "explanation": "Қорытындылау сабақтағы негізгі білімді жүйелейді және оқу мақсатының орындалуын көрсетеді."
-      }
-    ]
-  },
-  {
-    "title": "Есеп шығаруға үйрету әдістемесі",
-    "desc": "Мәтінді есепті талдау, модель құру, шешу жоспары, амал таңдау және жауапты тексеру.",
-    "questions": [
-      {
-        "type": "single",
-        "level": "B",
-        "text": "Мәтінді есеппен жұмыстың бірінші әдістемелік қадамы қандай?",
-        "options": [
-          "есеп шартын түсіну және берілгені мен сұрағын анықтау",
-          "бірден арифметикалық амалды таңдау",
-          "жауапты шамамен жазу",
-          "есеп мәтінін талдаусыз көшіру",
-          "есепті тек дайын үлгімен салыстыру"
-        ],
-        "correct": [
-          0
-        ],
-        "explanation": "Есеп шығаруда алдымен шарт түсініледі: не белгілі, не белгісіз, нені табу керек екені анықталады."
-      },
-      {
-        "type": "single",
-        "level": "B",
-        "text": "Есептің қысқаша жазуы қандай қызмет атқарады?",
-        "options": [
-          "берілген шамалар мен олардың байланысын көрнекі түрде көрсету",
-          "есептің жауабын автоматты түрде табу",
-          "мәтіннің барлық сөзін қысқартусыз көшіру",
-          "амалды түсіндірмей таңдауға мүмкіндік беру",
-          "есептің мазмұнын өмірлік жағдайдан бөлу"
-        ],
-        "correct": [
-          0
-        ],
-        "explanation": "Қысқаша жазу есеп құрылымын, шамалар арасындағы байланысты және шешу бағытын анықтауға көмектеседі."
-      },
-      {
-        "type": "single",
-        "level": "B",
-        "text": "Есепті модельдеу дегеніміз не?",
-        "options": [
-          "есеп мазмұнын сызба, кесте, өрнек немесе схема арқылы көрсету",
-          "есеп жауабын тек есте сақтау",
-          "есепті мәтінсіз орындау",
-          "есеп шартын кездейсоқ өзгерту",
-          "есепті бағалаусыз қалдыру"
-        ],
-        "correct": [
-          0
-        ],
-        "explanation": "Модельдеу есептің математикалық құрылымын айқындайды және амал таңдауды негіздейді."
-      },
-      {
-        "type": "multi",
-        "level": "B",
-        "text": "Есеп шығаруға үйретудің негізгі кезеңдерін таңдаңыз.",
-        "options": [
-          "есепті талдау",
-          "шешу жоспарын құру",
-          "шешімді тексеру",
-          "жауапты себепсіз болжау",
-          "шартты оқымай амал таңдау",
-          "қатені талдамай өткізу",
-          "мәтінді есептен алып тастау",
-          "бағаны алдын ала қою"
-        ],
-        "correct": [
-          0,
-          1,
-          2
-        ],
-        "explanation": "Есеппен жұмыс: шартты түсіну, талдау, жоспар құру, шешу, тексеру және жауапты тұжырымдау кезеңдерінен тұрады."
-      },
-      {
-        "type": "single",
-        "level": "B",
-        "text": "Амал таңдауды негіздеу үшін оқушы нені түсіндіруі керек?",
-        "options": [
-          "шамалар арасындағы қатынасты және осы қатынасқа сәйкес амалдың мағынасын",
-          "амал таңбасын көркем жазу тәртібін",
-          "жауаптың парақтағы орналасуын",
-          "есеп мәтініндегі барлық сөздің санын",
-          "тапсырманың сыртқы безендірілуін"
-        ],
-        "correct": [
-          0
-        ],
-        "explanation": "Амал кездейсоқ таңдалмайды; ол есептегі шамалардың байланысына сүйеніп түсіндіріледі."
-      },
-      {
-        "type": "single",
-        "level": "B",
-        "text": "Құрама есепті шығаруда қандай әдістемелік әрекет маңызды?",
-        "options": [
-          "есепті қарапайым қадамдарға бөліп, әр қадамның сұрағын анықтау",
-          "барлық амалдарды себепсіз бір жолға жазу",
-          "тек соңғы жауапты есте сақтау",
-          "есеп шартын қысқартпай жаттау",
-          "есептің мазмұнын сызбасыз қалдыру"
-        ],
-        "correct": [
-          0
-        ],
-        "explanation": "Құрама есеп бірнеше байланыстан тұрады, сондықтан оны кезеңдерге бөліп талдау қажет."
-      },
-      {
-        "type": "single",
-        "level": "B",
-        "text": "Кері есептерді қолданудың мақсаты қандай?",
-        "options": [
-          "шамалар арасындағы байланысты терең түсіндіру және шешімді тексеруге үйрету",
-          "оқушыны жаңа ұғымнан алыстату",
-          "бір есептің мәтінін мағынасыз өзгерту",
-          "амалдарды кездейсоқ ауыстыру",
-          "жауапты талдаусыз көшірту"
-        ],
-        "correct": [
-          0
-        ],
-        "explanation": "Кері есептер оқушыға берілген және ізделінді шамалардың өзара байланысын түсінуге көмектеседі."
-      },
-      {
-        "type": "multi",
-        "level": "B",
-        "text": "Есеп шешімін тексеру тәсілдерін таңдаңыз.",
-        "options": [
-          "кері амал қолдану",
-          "есеп шартымен салыстыру",
-          "жауаптың мағыналылығын бағалау",
-          "жауапты түсіндірмей көшіру",
-          "шарттағы шамаларды елемеу",
-          "есеп мәтінін оқымай белгілеу",
-          "қатені оқушыға көрсетпеу",
-          "амалды кездейсоқ алмастыру"
-        ],
-        "correct": [
-          0,
-          1,
-          2
-        ],
-        "explanation": "Тексеру кері амал, шартпен салыстыру және жауаптың өмірлік мағынасына қарау арқылы орындалады."
-      },
-      {
-        "type": "single",
-        "level": "B",
-        "text": "Мәтінді есептегі негізгі қиындық қай кезде пайда болады?",
-        "options": [
-          "оқушы математикалық қатынасты мәтіннен бөліп көрсете алмағанда",
-          "оқушы есепті дауыстап оқығанда",
-          "оқушы сызбаны дұрыс таңдағанда",
-          "оқушы берілгенін анықтағанда",
-          "оқушы жауабын тексергенде"
-        ],
-        "correct": [
-          0
-        ],
-        "explanation": "Көп қате есеп мазмұнын түсінбеуден және шамалар байланысын дұрыс анықтамаудан туындайды."
-      },
-      {
-        "type": "single",
-        "level": "B",
-        "text": "Есеп шығаруда түсіндірмелі жазудың маңызы қандай?",
-        "options": [
-          "әр амалдың не үшін орындалғанын дәлелдеп көрсету",
-          "тек жауаптың әдемі жазылуын қамтамасыз ету",
-          "шарттағы барлық сөзді қайталау",
-          "шешу жоспарын жасыру",
-          "оқушы ойлауын бағалаудан шығару"
-        ],
-        "correct": [
-          0
-        ],
-        "explanation": "Түсіндірмелі жазу оқушының ойлау жолын, амал таңдауының негізін және шешім логикасын көрсетеді."
-      }
-    ]
-  },
-  {
-    "title": "Бақылау, бағалау және кері байланыс",
-    "desc": "Формативті бағалау, критерий, дескриптор, қатемен жұмыс және оқу жетістігін бақылау.",
-    "questions": [
-      {
-        "type": "single",
-        "level": "B",
-        "text": "Формативті бағалаудың негізгі мақсаты қандай?",
-        "options": [
-          "оқу барысында оқушының жетістігі мен қиындығын анықтап, дер кезінде қолдау көрсету",
-          "тоқсан соңында ғана қорытынды баға қою",
-          "оқушыны тек қате саны бойынша салыстыру",
-          "сабақ мақсатын бағалаудан бөлу",
-          "тапсырманы түсіндірусіз беру"
-        ],
-        "correct": [
-          0
-        ],
-        "explanation": "Формативті бағалау оқу процесін жақсарту үшін қолданылады: мұғалім де, оқушы да келесі қадамды көреді."
-      },
-      {
-        "type": "single",
-        "level": "B",
-        "text": "Бағалау критерийі нені көрсетеді?",
-        "options": [
-          "оқушы жұмысының қандай белгі бойынша бағаланатынын",
-          "мектептің әкімшілік есебін",
-          "сабақ кестесінің уақытын",
-          "оқушының жеке құжатын",
-          "кабинет жабдығының тізімін"
-        ],
-        "correct": [
-          0
-        ],
-        "explanation": "Критерий оқу мақсатына сай күтілетін нәтижені және бағалау өлшемін нақтылайды."
-      },
-      {
-        "type": "single",
-        "level": "B",
-        "text": "Дескриптордың қызметін таңдаңыз.",
-        "options": [
-          "тапсырманы орындау қадамдары мен бағаланатын әрекеттерді нақтылау",
-          "оқушының сабаққа қатысуын тіркеу",
-          "мектеп мүлкін есептеу",
-          "сынып бөлмесін безендіру",
-          "оқулық тізімін бекіту"
-        ],
-        "correct": [
-          0
-        ],
-        "explanation": "Дескриптор оқушыға тапсырманы қалай орындау керегін, мұғалімге нені бақылау керегін көрсетеді."
-      },
-      {
-        "type": "multi",
-        "level": "B",
-        "text": "Кері байланыстың тиімді түрлерін таңдаңыз.",
-        "options": [
-          "нақты қате мен түзету жолын көрсету",
-          "оқушының дұрыс орындаған әрекетін атау",
-          "келесі қадамға бағыт беру",
-          "тек «жақсы» деп жалпы айту",
-          "қатені түсіндірмей белгілеу",
-          "оқушыны басқа оқушымен кемсітіп салыстыру",
-          "бағаны себепсіз төмендету",
-          "тапсырманы қайта қарауға мүмкіндік бермеу"
-        ],
-        "correct": [
-          0,
-          1,
-          2
-        ],
-        "explanation": "Тиімді кері байланыс нақты, түсінікті және әрекетке бағытталған болуы керек."
-      },
-      {
-        "type": "single",
-        "level": "B",
-        "text": "Қатені талдау әдістемелік тұрғыдан не үшін қажет?",
-        "options": [
-          "қате себебін анықтап, дұрыс тәсілді саналы меңгерту үшін",
-          "оқушыны жазалау үшін",
-          "тапсырманы қысқарту үшін",
-          "бағалауды алып тастау үшін",
-          "сабақ мақсатын өзгертпей жасыру үшін"
-        ],
-        "correct": [
-          0
-        ],
-        "explanation": "Қате — оқу дерегі. Оны талдау арқылы түсінбеу себебі анықталып, түзету жұмысы жүргізіледі."
-      },
-      {
-        "type": "single",
-        "level": "B",
-        "text": "Жиынтық бағалау формативті бағалаудан несімен ерекшеленеді?",
-        "options": [
-          "бөлім немесе тоқсан соңындағы оқу нәтижесін қорытындылауға бағытталуымен",
-          "әр тапсырмадан кейін ауызша қолдау беруімен",
-          "тек сабақ басында қолданылуымен",
-          "оқушының жеке ойлауын есепке алмауымен",
-          "бағалау критерийін қажет етпеуімен"
-        ],
-        "correct": [
-          0
-        ],
-        "explanation": "Жиынтық бағалау белгілі кезең аяқталғаннан кейін меңгерілген нәтижені қорытындылайды."
-      },
-      {
-        "type": "single",
-        "level": "B",
-        "text": "Өзін-өзі бағалаудың әдістемелік пайдасы қандай?",
-        "options": [
-          "оқушы өз оқу әрекетін критериймен салыстырып, жауапкершілігін арттырады",
-          "оқушы мұғалім түсіндіруін толық алмастырады",
-          "оқушы қатесін ешкіммен талқыламайды",
-          "бағалау өлшемі қажет болмайды",
-          "сабақ мақсаты оқушыдан жасырын болады"
-        ],
-        "correct": [
-          0
-        ],
-        "explanation": "Өзін-өзі бағалау оқушыны өз нәтижесін түсінуге және келесі қадамын жоспарлауға үйретеді."
-      },
-      {
-        "type": "multi",
-        "level": "B",
-        "text": "Бақылаудың негізгі түрлерін таңдаңыз.",
-        "options": [
-          "ағымдық бақылау",
-          "тақырыптық бақылау",
-          "қорытынды бақылау",
-          "шаруашылық бақылау",
-          "кадрлық бақылау",
-          "асхана бақылауы",
-          "мүліктік бақылау",
-          "құжат архиві"
-        ],
-        "correct": [
-          0,
-          1,
-          2
-        ],
-        "explanation": "Оқу жетістігін бақылауда ағымдық, тақырыптық, аралық және қорытынды бақылау қолданылады."
-      },
-      {
-        "type": "single",
-        "level": "B",
-        "text": "Математикадағы ауызша сұрау қай жағдайда тиімді?",
-        "options": [
-          "ұғымды түсіндіру, амал таңдау себебін айту және ойлау жолын негіздеу кезінде",
-          "тек жазу жылдамдығын тексеру кезінде",
-          "үй тапсырмасын қарамай бағалау кезінде",
-          "оқушыны есеп шығарудан босату кезінде",
-          "сабақты мақсатсыз ұзарту кезінде"
-        ],
-        "correct": [
-          0
-        ],
-        "explanation": "Ауызша сұрау оқушының түсінуін, математикалық тілін және дәлелдеу қабілетін көруге мүмкіндік береді."
-      },
-      {
-        "type": "single",
-        "level": "B",
-        "text": "Бағалау нәтижесін оқытуда қолданудың дұрыс жолы қайсы?",
-        "options": [
-          "нәтижеге сүйеніп, қосымша түсіндіру, қайталау және қолдау жұмысын жоспарлау",
-          "нәтижені тек журналға қойып, талдамау",
-          "қателерді келесі сабақта ескермеу",
-          "барлық оқушыға бірдей жазалау қолдану",
-          "оқу мақсатын бағалау нәтижесінен бөлу"
-        ],
-        "correct": [
-          0
-        ],
-        "explanation": "Бағалау нәтижесі келесі оқыту қадамын жоспарлауға, олқылықты толықтыруға және оқушыны қолдауға негіз болады."
-      }
-    ]
-  },
-  {
-    "title": "Оқушылардың математикалық ойлауын дамыту",
-    "desc": "Логикалық ойлау, дәлелдеу, салыстыру, жалпылау, модельдеу және функционалдық сауаттылық.",
-    "questions": [
-      {
-        "type": "single",
-        "level": "B",
-        "text": "Математикалық ойлауды дамытатын негізгі әрекетті таңдаңыз.",
-        "options": [
-          "талдау, салыстыру, жалпылау және қорытынды жасау",
-          "ережені түсінбей жаттау",
-          "жауапты себепсіз көшіру",
-          "қатені талдамау",
-          "тапсырманы мазмұнсыз көбейту"
-        ],
-        "correct": [
-          0
-        ],
-        "explanation": "Математикалық ойлау ойлау операциялары арқылы дамиды: талдау, салыстыру, абстракциялау, жалпылау, дәлелдеу."
-      },
-      {
-        "type": "single",
-        "level": "B",
-        "text": "Дәлелдеуге үйретудің басты мақсаты қандай?",
-        "options": [
-          "оқушының тұжырымды негіздеп, ойлау жолын түсіндіруін қалыптастыру",
-          "оқушының жауабын тек есте сақтауын талап ету",
-          "қате жауапты талдаусыз қабылдау",
-          "сызбаны түсіндірмей көшіру",
-          "есепті амалсыз орындау"
-        ],
-        "correct": [
-          0
-        ],
-        "explanation": "Дәлелдеу оқушының математикалық пайымдауын және жауаптың неге дұрыс екенін түсіндіруін қалыптастырады."
-      },
-      {
-        "type": "single",
-        "level": "B",
-        "text": "Салыстыру тапсырмасы қандай нәтиже береді?",
-        "options": [
-          "ұқсастық пен айырмашылықты анықтап, маңызды белгілерді тануға көмектеседі",
-          "оқушыны есеп шығарудан босатады",
-          "анықтаманы қолдануды қажетсіз етеді",
-          "барлық жауапты бірдей дұрыс етеді",
-          "математикалық тілден бас тартқызады"
-        ],
-        "correct": [
-          0
-        ],
-        "explanation": "Салыстыру ұғым белгілерін нақтылауға және қате түсініктерді түзетуге көмектеседі."
-      },
-      {
-        "type": "multi",
-        "level": "B",
-        "text": "Математикалық модельдеуге жататын әрекеттерді таңдаңыз.",
-        "options": [
-          "есепті сызба арқылы көрсету",
-          "шамалар байланысын өрнекпен жазу",
-          "кесте бойынша қорытынды жасау",
-          "жауапты түсіндірмей көшіру",
-          "мәтінді есептен алып тастау",
-          "қатені жасыру",
-          "амалды кездейсоқ таңдау",
-          "сабақ мақсатын елемеу"
-        ],
-        "correct": [
-          0,
-          1,
-          2
-        ],
-        "explanation": "Модельдеу жағдайды сызба, кесте, өрнек немесе схема арқылы математикалық түрде көрсетеді."
-      },
-      {
-        "type": "single",
-        "level": "B",
-        "text": "Функционалдық сауаттылық математикада нені білдіреді?",
-        "options": [
-          "математикалық білімді өмірлік жағдайларда түсініп қолдану",
-          "формуланы мағынасыз жаттау",
-          "есепті тек үлгі бойынша көшіру",
-          "шамаларды өлшем бірліксіз жазу",
-          "жауапты тек болжаммен беру"
-        ],
-        "correct": [
-          0
-        ],
-        "explanation": "Функционалдық сауаттылық — білімді нақты жағдайды талдау, шешім қабылдау және негіздеу үшін қолдану қабілеті."
-      },
-      {
-        "type": "single",
-        "level": "B",
-        "text": "Логикалық есептерді қолданудың әдістемелік мақсаты қандай?",
-        "options": [
-          "байланысты байқау, болжам жасау және дәлелді шешім табуға үйрету",
-          "оқушыны бағдарламалық мазмұннан толық алыстату",
-          "есептеу дағдысын бағалаудан алып тастау",
-          "қате жауапты дұрыс деп көрсету",
-          "сабақ құрылымын бұзу"
-        ],
-        "correct": [
-          0
-        ],
-        "explanation": "Логикалық есептер оқушының пайымдау, жоспарлау және дәлелдеу қабілетін дамытады."
-      },
-      {
-        "type": "single",
-        "level": "B",
-        "text": "Жалпылау әрекеті қай кезде байқалады?",
-        "options": [
-          "бірнеше жеке жағдайдан ортақ ереже немесе қасиет шығарғанда",
-          "бір мысалды түсіндірмей көшіргенде",
-          "жауапты тек санмен жазғанда",
-          "есеп шартын оқымай шешкенде",
-          "қате себептерін жасырғанда"
-        ],
-        "correct": [
-          0
-        ],
-        "explanation": "Жалпылау жеке мысалдардың ортақ белгісін табу арқылы жалпы қорытындыға келуді білдіреді."
-      },
-      {
-        "type": "multi",
-        "level": "B",
-        "text": "Оқушының математикалық тілін дамыту тәсілдерін таңдаңыз.",
-        "options": [
-          "шешу жолын ауызша түсіндіру",
-          "амал таңдауды жазбаша негіздеу",
-          "терминдерді мағынасымен қолдану",
-          "жауапты себепсіз белгілеу",
-          "анықтаманы қате қолдану",
-          "шартты оқымай айту",
-          "сызбаны түсіндірмеу",
-          "тек соңғы санды жазу"
-        ],
-        "correct": [
-          0,
-          1,
-          2
-        ],
-        "explanation": "Математикалық тіл дәл сөйлеу, жазу, белгілеу және негіздеу әрекеттерінде дамиды."
-      },
-      {
-        "type": "single",
-        "level": "B",
-        "text": "Зерттеушілік тапсырмаға тән белгі қайсы?",
-        "options": [
-          "оқушының бақылау жасап, болжам құрып, нәтижені тексеруі",
-          "оқушының дайын жауапты көшіріп алуы",
-          "тапсырманың мақсаты болмауы",
-          "қорытындының дәлелсіз берілуі",
-          "модельдің қолданылмауы"
-        ],
-        "correct": [
-          0
-        ],
-        "explanation": "Зерттеушілік тапсырмада оқушы сұрақ қояды, дерек жинайды, болжам жасайды және қорытындысын негіздейді."
-      },
-      {
-        "type": "single",
-        "level": "B",
-        "text": "Шығармашылық есептің ерекшелігі қандай?",
-        "options": [
-          "бірнеше шешу жолын табуға және өз тәсілін негіздеуге мүмкіндік беру",
-          "тек бір дайын алгоритмді қайталау",
-          "есептің шартын өзгертпей көшіру",
-          "оқушы ойлауын шектеу",
-          "жауапты тек мұғалім айтуы"
-        ],
-        "correct": [
-          0
-        ],
-        "explanation": "Шығармашылық есеп оқушыға таңдау, салыстыру, дәлелдеу және жаңа тәсіл ұсыну мүмкіндігін береді."
-      }
-    ]
-  },
-  {
-    "title": "Қайталау және білімді бекіту әдістемесі",
-    "desc": "Қайталау түрлері, жүйелеу, қорытындылау, олқылықтарды толықтыру және аралас тапсырмалар.",
-    "questions": [
-      {
-        "type": "single",
-        "level": "B",
-        "text": "Қайталаудың негізгі әдістемелік мақсаты қандай?",
-        "options": [
-          "бұрынғы білімді жүйелеп, жаңа жағдайда қолдануға дайындау",
-          "тақырыпты мағынасыз қайта көшіру",
-          "оқушы қатесін талдаудан алып тастау",
-          "тек үй тапсырмасын көбейту",
-          "бағалауды кездейсоқ жүргізу"
-        ],
-        "correct": [
-          0
-        ],
-        "explanation": "Қайталау білімді ұмытып қалмау үшін ғана емес, оны жүйелеу және қолдану үшін ұйымдастырылады."
-      },
-      {
-        "type": "single",
-        "level": "B",
-        "text": "Ағымдық қайталау қай кезде жүргізіледі?",
-        "options": [
-          "жаңа тақырыппен байланысты бұрынғы білімді сабақ барысында еске түсіргенде",
-          "оқу жылы толық аяқталғаннан кейін ғана",
-          "тек тоқсандық баға қойылғаннан кейін",
-          "сабақ мақсаты берілмеген кезде",
-          "оқулық жабылғаннан кейін ғана"
-        ],
-        "correct": [
-          0
-        ],
-        "explanation": "Ағымдық қайталау жаңа материалды түсінуге қажет тірек білімді белсендіреді."
-      },
-      {
-        "type": "single",
-        "level": "B",
-        "text": "Қорытынды қайталаудың ерекшелігі қандай?",
-        "options": [
-          "үлкен бөлім немесе курс бойынша білімді жүйелеу және байланыстыру",
-          "бір ғана терминді оқшау жаттау",
-          "жаңа тақырыпты байланыссыз бастау",
-          "тапсырманы тек көшірту",
-          "қатені талдамай өткізу"
-        ],
-        "correct": [
-          0
-        ],
-        "explanation": "Қорытынды қайталау бірнеше тақырып арасындағы байланысты көрсетіп, негізгі білімді жинақтайды."
-      },
-      {
-        "type": "multi",
-        "level": "B",
-        "text": "Бекіту тапсырмаларына қойылатын талаптарды таңдаңыз.",
-        "options": [
-          "оқу мақсатына сай болуы",
-          "әртүрлі деңгейде берілуі",
-          "қолдану мен түсіндіруді қамтуы",
-          "тақырыптан тыс болуы",
-          "жауапсыз берілуі",
-          "оқушы деңгейін ескермеуі",
-          "қатені тек жасыруы",
-          "мақсатсыз қайталануы"
-        ],
-        "correct": [
-          0,
-          1,
-          2
-        ],
-        "explanation": "Бекіту тапсырмасы мақсатқа сай, деңгейленген, түсіндіру мен қолдануды қамтитын болуы керек."
-      },
-      {
-        "type": "single",
-        "level": "B",
-        "text": "Олқылықтарды толықтыру жұмысы неден басталады?",
-        "options": [
-          "диагностика арқылы қиындықтың нақты себебін анықтаудан",
-          "барлық тақырыпты бірдей қайта оқытудан",
-          "оқушыны бағалаудан босатудан",
-          "қатені талдамай келесі бөлімге өтуден",
-          "үй жұмысын себепсіз көбейтуден"
-        ],
-        "correct": [
-          0
-        ],
-        "explanation": "Олқылықты толықтыру үшін алдымен қай ұғым, амал немесе тәсіл меңгерілмегенін анықтау қажет."
-      },
-      {
-        "type": "single",
-        "level": "B",
-        "text": "Аралас тапсырмалардың әдістемелік пайдасы қандай?",
-        "options": [
-          "әртүрлі білімді байланыстырып қолдануға үйретеді",
-          "бір ғана алгоритмді механикалық қайталатады",
-          "тақырыптар байланысын жасырады",
-          "оқушының ойлауын шектейді",
-          "бағалау критерийін қажетсіз етеді"
-        ],
-        "correct": [
-          0
-        ],
-        "explanation": "Аралас тапсырмалар оқушыға бұрынғы және жаңа білімді ажыратып, дұрыс тәсілді таңдауға мүмкіндік береді."
-      },
-      {
-        "type": "multi",
-        "level": "B",
-        "text": "Жүйелеу кезінде қолдануға болатын құралдарды таңдаңыз.",
-        "options": [
-          "кесте",
-          "тірек сызба",
-          "салыстыру схемасы",
-          "асхана мәзірі",
-          "кадрлық бұйрық",
-          "мүлік тізімі",
-          "сынып есігінің белгісі",
-          "сыртқы хабарландыру"
-        ],
-        "correct": [
-          0,
-          1,
-          2
-        ],
-        "explanation": "Кесте, тірек сызба және схема білімді құрылымдап, байланыстарды көруге көмектеседі."
-      },
-      {
-        "type": "single",
-        "level": "B",
-        "text": "Қайталауда қатемен жұмыс қалай ұйымдастырылуы керек?",
-        "options": [
-          "қате түрін анықтап, дұрыс тәсілді қайта қолдану арқылы",
-          "қатені көрсетпей келесі тапсырмаға өту арқылы",
-          "оқушыны тапсырмадан толық босату арқылы",
-          "жауапты тек мұғалім жазып беру арқылы",
-          "бағаны түсіндірмей төмендету арқылы"
-        ],
-        "correct": [
-          0
-        ],
-        "explanation": "Қатені түзету үшін оның себебі анықталып, ұқсас және өзгертілген тапсырмалар арқылы дұрыс тәсіл бекітіледі."
-      },
-      {
-        "type": "single",
-        "level": "B",
-        "text": "Білімді бекітуде ойын элементін қолданудың шарты қандай?",
-        "options": [
-          "ойын оқу мақсатына және математикалық әрекетке бағынуы керек",
-          "ойын сабақ мазмұнын толық алмастыруы керек",
-          "ойын кезінде нәтиже талданбауы керек",
-          "ойын тек уақыт өткізу үшін қолданылуы керек",
-          "ойын оқушының есептеуін шектеуі керек"
-        ],
-        "correct": [
-          0
-        ],
-        "explanation": "Ойын элементі мотивацияны арттырса да, негізгі мақсат математикалық білімді қолдану мен бекіту болып қалуы керек."
-      },
-      {
-        "type": "single",
-        "level": "B",
-        "text": "Қайталау нәтижесін бағалау не үшін қажет?",
-        "options": [
-          "оқушының қандай білімді меңгергенін және қай жерде қосымша қолдау керегін анықтау үшін",
-          "тек журналдағы бағаны көбейту үшін",
-          "қатені түсіндірмей қалдыру үшін",
-          "барлық оқушыны бірдей деңгейде көрсету үшін",
-          "келесі сабақ жоспарын елемеу үшін"
-        ],
-        "correct": [
-          0
-        ],
-        "explanation": "Қайталау нәтижесі мұғалімге келесі қадамды жоспарлауға, оқушыға өз жетістігі мен қиындығын көруге көмектеседі."
-      }
-    ]
-  },
-  {
-    "title": "Бастауыш математика мазмұны және оқу мақсаттары",
-    "desc": "Сандар, шамалар, өрнектер, теңдеулер, геометрия, жиындар, логика және математикалық модельдеу.",
-    "questions": [
-      {
-        "type": "single",
-        "level": "B",
-        "text": "Бастауыш математика мазмұнындағы негізгі бөлімді таңдаңыз.",
-        "options": [
-          "сандар және амалдар",
-          "мектеп құжаттары",
-          "кадрлық есеп",
-          "асхана қызметі",
-          "тәртіп журналы"
-        ],
-        "correct": [
-          0
-        ],
-        "explanation": "Бастауыш математикада сандар, амалдар, шамалар, геометрия, модельдеу және логикалық тапсырмалар негізгі мазмұнды құрайды."
-      },
-      {
-        "type": "single",
-        "level": "B",
-        "text": "Шамалар бөлімін оқытуда не маңызды?",
-        "options": [
-          "өлшеу бірлігін түсіну, өлшеу құралын қолдану және шамаларды салыстыру",
-          "шаманың атауын ғана жаттау",
-          "өлшем бірлігін есептен бөлу",
-          "өлшеу құралын қолданбау",
-          "шаманы тек суретпен алмастыру"
-        ],
-        "correct": [
-          0
-        ],
-        "explanation": "Шамалар нақты өлшеу әрекеті, бірлікпен жазу, салыстыру және есептерде қолдану арқылы меңгеріледі."
-      },
-      {
-        "type": "single",
-        "level": "B",
-        "text": "Өрнек ұғымын қалыптастыруда оқушы нені түсінуі керек?",
-        "options": [
-          "амал таңбалары арқылы сандық қатынастың жазылуын және мәнін табуды",
-          "өрнекті тек әдемі жазу үлгісі ретінде",
-          "өрнектің есеппен байланысы жоқ екенін",
-          "өрнекті тек термин ретінде жаттауды",
-          "өрнек мәнін тек болжаммен айтуды"
-        ],
-        "correct": [
-          0
-        ],
-        "explanation": "Өрнек — математикалық қатынастың символдық жазылуы; оқушы оның мағынасын және мәнін табуды түсінуі керек."
-      },
-      {
-        "type": "multi",
-        "level": "B",
-        "text": "Бастауыш математика мазмұнына кіретін бағыттарды таңдаңыз.",
-        "options": [
-          "геометриялық фигуралар",
-          "математикалық модельдеу",
-          "жиындар және логика элементтері",
-          "кадрлық құжат жүргізу",
-          "асхана есебі",
-          "мектеп ғимаратын жөндеу",
-          "әкімшілік бұйрық",
-          "мүлік қабылдау"
-        ],
-        "correct": [
-          0,
-          1,
-          2
-        ],
-        "explanation": "Геометрия, модельдеу, жиындар және логика бастауыш математика мазмұнын толықтырады."
-      },
-      {
-        "type": "single",
-        "level": "B",
-        "text": "Теңдеу шешуге үйретудің бастапқы әдістемелік негізі қандай?",
-        "options": [
-          "белгісіз компонент пен амал компоненттері арасындағы байланысты түсіндіру",
-          "теңдеуді тек көшіріп жаздыру",
-          "белгісізді мағынасыз таңба ретінде қарастыру",
-          "тексеруді қолданбау",
-          "теңдеуді мәтінді есептен толық бөлу"
-        ],
-        "correct": [
-          0
-        ],
-        "explanation": "Теңдеу шешу амал компоненттері арасындағы байланысқа және тексеруге сүйенеді."
-      },
-      {
-        "type": "single",
-        "level": "B",
-        "text": "Геометриялық материалдың бастауыштағы қызметі қандай?",
-        "options": [
-          "кеңістіктік елестету, өлшеу, сызу және салыстыру білігін дамыту",
-          "тек фигура атауын жаттатқызу",
-          "арифметиканы толық алмастыру",
-          "есеп шығаруды қажетсіз ету",
-          "математикалық тілді қолданбау"
-        ],
-        "correct": [
-          0
-        ],
-        "explanation": "Геометриялық материал кеңістіктік ойлау мен практикалық өлшеу-сызу дағдысын дамытады."
-      },
-      {
-        "type": "single",
-        "level": "B",
-        "text": "Математикалық модельдеу бастауышта қалай көрінеді?",
-        "options": [
-          "өмірлік жағдайды сызба, кесте, өрнек немесе есеп арқылы көрсету",
-          "жауапты түсіндірмей жазу",
-          "шартты оқымай амал таңдау",
-          "тапсырманы мазмұнсыз көшіру",
-          "оқушы тәжірибесін ескермеу"
-        ],
-        "correct": [
-          0
-        ],
-        "explanation": "Модельдеу оқушыға нақты жағдайды математикалық тілге аударуға көмектеседі."
-      },
-      {
-        "type": "single",
-        "level": "B",
-        "text": "Оқу мақсатын тапсырмамен сәйкестендіру нені білдіреді?",
-        "options": [
-          "тапсырма оқушы меңгеруі тиіс әрекетті тексеруі керек",
-          "тапсырма тақырыптан тыс болуы керек",
-          "тапсырма тек көлемі көп болуы керек",
-          "тапсырмада бағалау өлшемі болмауы керек",
-          "тапсырма оқушы деңгейін ескермеуі керек"
-        ],
-        "correct": [
-          0
-        ],
-        "explanation": "Әр тапсырма оқу мақсатына сай әрекетті орындатуы және сол нәтижені бағалауға мүмкіндік беруі керек."
-      },
-      {
-        "type": "multi",
-        "level": "B",
-        "text": "Бастауышта математиканы оқытудың күтілетін нәтижелерін таңдаңыз.",
-        "options": [
-          "есептеу дағдысы",
-          "логикалық ойлау",
-          "математикалық тілде түсіндіру",
-          "мектеп мүлкін есептеу",
-          "әкімшілік хат жазу",
-          "асхана қызметін бақылау",
-          "кадрлық жоспар жасау",
-          "қойма есебін жүргізу"
-        ],
-        "correct": [
-          0,
-          1,
-          2
-        ],
-        "explanation": "Күтілетін нәтижелер математикалық білім, есептеу, логикалық ойлау және түсіндіру дағдыларымен байланысты."
-      },
-      {
-        "type": "single",
-        "level": "B",
-        "text": "Пәнаралық байланыс математиканы оқытуда не үшін қолданылады?",
-        "options": [
-          "математикалық білімді басқа пәндердегі және өмірдегі жағдайлармен байланыстыру үшін",
-          "математика мазмұнын толық алып тастау үшін",
-          "есеп шығаруды қажетсіз ету үшін",
-          "оқу мақсатын белгісіз қалдыру үшін",
-          "бағалауды тек ауызша мақтауға ауыстыру үшін"
-        ],
-        "correct": [
-          0
-        ],
-        "explanation": "Пәнаралық байланыс математиканың практикалық мәнін көрсетіп, білімді жаңа жағдайда қолдануға үйретеді."
-      }
-    ]
-  }
 ];
-let currentSectionIndex = 0;
-function renderSections(){
-  const box=document.getElementById('sectionsList'); box.innerHTML='';
-  sections.forEach((section,index)=>{
-    const card=document.createElement('div'); card.className='section-card';
-    card.onclick=()=>openSection(index);
-    card.innerHTML=`<div class="section-top"><span class="num">${index+1}</span><span class="count">${section.questions.length} сұрақ</span></div><h3>${section.title}</h3><p>${section.desc}</p>`;
-    box.appendChild(card);
-  });
-}
-function openSection(index){ currentSectionIndex=index; const section=sections[index]; document.getElementById('homePage').style.display='none'; document.getElementById('testPage').style.display='block'; document.getElementById('testTitle').textContent=section.title; document.getElementById('testDesc').textContent=section.desc; document.getElementById('scoreBox').style.display='none'; renderQuestions(section); window.scrollTo({top:0,behavior:'smooth'}); }
-function goHome(){ document.getElementById('testPage').style.display='none'; document.getElementById('homePage').style.display='block'; window.scrollTo({top:0,behavior:'smooth'}); }
-function renderQuestions(section){
-  const box=document.getElementById('questionsBox'); box.innerHTML='';
-  section.questions.forEach((q,qIndex)=>{
-    const qDiv=document.createElement('div'); qDiv.className='question';
-    const inputType=q.type==='multi'?'checkbox':'radio';
-    const typeText=q.type==='multi'?'Бірнеше дұрыс жауап таңдаңыз':'Бір дұрыс жауап таңдаңыз';
-    const optionsHtml=q.options.map((opt,optIndex)=>`<label class="option" data-option="${optIndex}"><input type="${inputType}" name="q${qIndex}" value="${optIndex}"><span>${opt}</span></label>`).join('');
-    qDiv.innerHTML=`<div class="q-head"><span class="q-number">${qIndex+1}</span><div class="q-text">${q.text}</div></div><div class="q-type">${typeText} · деңгейі ${q.level}</div><div class="options">${optionsHtml}</div><div class="explanation"><b>Түсіндірме:</b> ${q.explanation}</div>`;
-    box.appendChild(qDiv);
-  });
-}
-function arraysEqual(a,b){ if(a.length!==b.length)return false; const x=[...a].sort((m,n)=>m-n); const y=[...b].sort((m,n)=>m-n); return x.every((v,i)=>v===y[i]); }
-function checkAnswers(){
-  const section=sections[currentSectionIndex]; let correctCount=0;
-  document.querySelectorAll('.question').forEach((qDiv,qIndex)=>{
-    const q=section.questions[qIndex]; const checked=[...qDiv.querySelectorAll('input:checked')].map(i=>Number(i.value));
-    qDiv.querySelectorAll('.option').forEach(option=>{ option.classList.remove('correct','wrong'); const optIndex=Number(option.dataset.option); if(q.correct.includes(optIndex)) option.classList.add('correct'); if(checked.includes(optIndex)&&!q.correct.includes(optIndex)) option.classList.add('wrong'); });
-    if(arraysEqual(checked,q.correct)) correctCount++; qDiv.querySelector('.explanation').style.display='block';
-  });
-  const total=section.questions.length; const percent=Math.round((correctCount/total)*100); const scoreBox=document.getElementById('scoreBox');
-  document.getElementById('scoreText').textContent=`${correctCount}/${total} дұрыс · ${percent}%`;
-  document.getElementById('scoreComment').textContent=percent>=85?'Өте жақсы нәтиже. Бұл бөлім бойынша негізгі ұғымдар жақсы меңгерілген.':percent>=60?'Жақсы, бірақ қате кеткен сұрақтардың түсіндірмесін қайта қарап шық.':'Бұл бөлімді қайта оқу керек. Түсіндірмелерге сүйеніп, сұрақтарды қайта орында.';
-  scoreBox.style.display='block'; scoreBox.scrollIntoView({behavior:'smooth',block:'center'});
-}
-renderSections();
-</script>
+    let currentSection = 0;
+    function renderSections(){
+      const box=document.getElementById('sectionsList'); box.innerHTML='';
+      sections.forEach((s,i)=>{
+        const card=document.createElement('div'); card.className='section-card'; card.onclick=()=>openSection(i);
+        card.innerHTML=`<div class="section-top"><span class="num">${i+1}</span></div><h3>${s.title}</h3><p>${s.desc}</p>`;
+        box.appendChild(card);
+      });
+    }
+    function openSection(index){
+      currentSection=index; const s=sections[index];
+      document.getElementById('homePage').style.display='none';
+      document.getElementById('testPage').style.display='block';
+      document.getElementById('testTitle').textContent=s.title;
+      document.getElementById('testDesc').textContent=s.desc;
+      document.getElementById('scoreBox').style.display='none';
+      renderQuestions(); window.scrollTo({top:0,behavior:'smooth'});
+    }
+    function goHome(){document.getElementById('testPage').style.display='none';document.getElementById('homePage').style.display='block';window.scrollTo({top:0,behavior:'smooth'})}
+    function renderQuestions(){
+      const box=document.getElementById('questionsBox'); box.innerHTML='';
+      sections[currentSection].questions.forEach((q,qi)=>{
+        const div=document.createElement('div'); div.className='question'; div.dataset.q=qi;
+        const inputType=q.type==='multi'?'checkbox':'radio'; const typeText=q.type==='multi'?'Бірнеше дұрыс жауап':'Бір дұрыс жауап';
+        const options=q.options.map((opt,oi)=>`<label class="option" data-option="${oi}"><input type="${inputType}" name="q${qi}" value="${oi}"><span>${opt}</span></label>`).join('');
+        div.innerHTML=`<div class="q-head"><span class="q-number">${qi+1}</span><div class="q-text">${q.text}</div></div><div class="q-type">${typeText}</div><div class="options">${options}</div><div class="explanation"><b>Түсіндірме:</b> ${q.explanation}</div>`;
+        box.appendChild(div);
+      });
+    }
+    function arraysEqual(a,b){return a.length===b.length && a.every((v,i)=>v===b[i])}
+    function checkAnswers(){
+      const qs=sections[currentSection].questions; let score=0;
+      qs.forEach((q,qi)=>{
+        const block=document.querySelector(`.question[data-q="${qi}"]`); const checked=[...block.querySelectorAll('input:checked')].map(i=>Number(i.value)).sort((a,b)=>a-b); const correct=[...q.correct].sort((a,b)=>a-b);
+        if(arraysEqual(checked,correct)) score++;
+        block.querySelectorAll('.option').forEach(label=>{
+          const oi=Number(label.dataset.option); label.classList.remove('correct','wrong');
+          if(q.correct.includes(oi)) label.classList.add('correct');
+          else if(checked.includes(oi)) label.classList.add('wrong');
+        });
+        block.querySelector('.explanation').style.display='block';
+      });
+      const scoreBox=document.getElementById('scoreBox'); scoreBox.style.display='block';
+      document.getElementById('scoreText').textContent=`Нәтиже: ${score} / ${qs.length}`;
+      document.getElementById('scoreComment').textContent=score===qs.length?'Өте жақсы! Барлық жауап дұрыс.':'Қате жауаптарды түсіндірме арқылы қайта қарап шығыңыз.';
+      scoreBox.scrollIntoView({behavior:'smooth',block:'center'});
+    }
+    renderSections();
+  </script>
 </body>
 </html>
